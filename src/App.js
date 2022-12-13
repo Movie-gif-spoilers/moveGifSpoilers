@@ -8,18 +8,24 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function App() {
+	// API Key
+	const apiKey = '50761410dc9e92f5fa1bd64a7884c0b0';
+	
 	// state that holds the movie's id from api
 	const [id, setId] = useState('');
 
+	// State to hold keywords returned from second api call
+	const [keywords, setKeywords] = useState([]);
+
 	useEffect(() => {
 		axios({
-			url: `https://api.themoviedb.org/3/movie/10625/keywords?api_key=50761410dc9e92f5fa1bd64a7884c0b0`,
-			// params: {
-			// 	api_key: 'f012df5d63927931e82fe659a8aaa3ac',
-			// },
+			url: `https://api.themoviedb.org/3/movie/${id}/keywords?api_key=${apiKey}`,
 		}).then((res) => {
-			console.log('id', id);
-			console.log('second api call', res.data);
+			const newKeywordsArray = [];
+			res.data.keywords.forEach((keyword) => {
+				newKeywordsArray.push(keyword.name);
+			});
+			setKeywords(newKeywordsArray);
 		});
 	}, [id]);
 
@@ -27,9 +33,9 @@ function App() {
 		<div className="App">
 			<Header />
 			<main>
-				<SearchBar setId={setId} />
+				<SearchBar setId={setId} apiKey={apiKey} />
 				<h3>Movie id: {id}</h3>
-				<DisplayGifs />
+				<DisplayGifs keywords={keywords} />
 			</main>
 			<Footer />
 		</div>
