@@ -8,13 +8,12 @@ const SearchBar = (props) => {
 	const [savedInput, setSavedInput] = useState('');
 
 	useEffect(() => {
-		const apiKey = '50761410dc9e92f5fa1bd64a7884c0b0';
 		axios({
 			url: 'https://api.themoviedb.org/3/search/movie',
 			method: 'GET',
 			dataResponse: 'json',
 			params: {
-				api_key: apiKey,
+				api_key: props.apiKey,
 				query: savedInput,
 				language: 'en-US',
 			},
