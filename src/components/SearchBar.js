@@ -3,6 +3,10 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const SearchBar = (props) => {
+	// state that holds the user's form input
+	const [input, setInput] = useState('');
+	const [savedInput, setSavedInput] = useState('');
+
 	useEffect(() => {
 		const apiKey = '50761410dc9e92f5fa1bd64a7884c0b0';
 		axios({
@@ -11,33 +15,32 @@ const SearchBar = (props) => {
 			dataResponse: 'json',
 			params: {
 				api_key: apiKey,
-				query: props.savedInput,
+				query: savedInput,
 				language: 'en-US',
 			},
 		}).then((res) => {
-			console.log(res.data.results[0]);
-			// setPhotos(res.data)
+			console.log('first api call', res.data.results[0]);
 			props.setId(res.data.results[0].id);
 		});
-		// .then(
-		// 	axios({
-		// 		url: `https://api.themoviedb.org/3/movie/10625/keywords?api_key=50761410dc9e92f5fa1bd64a7884c0b0`,
-		// 		// params: {
-		// 		// 	api_key: apiKey,
-		// 		// },
-		// 	})
-		// )
-		// .then((res) => console.log('second axios call', res));
-	}, [props.savedInput]);
+	}, [savedInput]);
+
+	const userChoice = (e) => {
+		setInput(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setSavedInput(input);
+	};
 
 	return (
-		<form onSubmit={() => props.handleSubmit} className="wrapper">
+		<form onSubmit={handleSubmit} className="wrapper">
 			<label htmlFor="userMovieChoice">Enter a movie and press play</label>
 			<input
-				onChange={() => props.userChoice}
+				onChange={userChoice}
 				type="text"
 				id="userMovieChoice"
-				value={props.input}
+				value={input}
 			/>
 
 			<button type="submit">
