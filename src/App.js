@@ -4,10 +4,48 @@ import Header from './components/Header.js';
 import DisplayGifs from './components/DisplayGifs.js';
 import SearchBar from './components/SearchBar';
 import Footer from './components/Footer.js';
-// import axios from 'axios';
-
+import axios from 'axios';
+import { useState, useEffect } from 'react'
+;
 
 function App() {
+
+  // state that holds the movie's id from api
+  const[id, setId] = useState('');
+
+  // state that holds the user's form input 
+  const[input, setInput] = useState('');
+  const[savedInput, setSavedInput] = useState('');
+
+  useEffect( () => {
+    const apiKey = '50761410dc9e92f5fa1bd64a7884c0b0';
+    axios({
+      url: "https://api.themoviedb.org/3/search/movie",
+      method: "GET",
+      dataResponse: "json",
+      params: {
+        api_key: apiKey,
+        query: savedInput,
+        language: "en-US"
+      },
+    })
+    .then( (res) => {
+      console.log(res.data.results)
+      // setPhotos(res.data)
+      setId(res.data.results);
+    });
+  }, [savedInput]);
+
+
+  const userChoice = (e) => {
+    setInput(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSavedInput(input);
+  }
+  
 
 
 
@@ -15,7 +53,12 @@ function App() {
     <div className="App">
      <Header />
      <main>
-      <SearchBar />
+      <SearchBar 
+            userChoice={userChoice}
+            input={input} 
+            handleSubmit={handleSubmit}
+            />
+      <h3>Movie id: {id}</h3>
       <DisplayGifs />
      </main>
       <Footer />
