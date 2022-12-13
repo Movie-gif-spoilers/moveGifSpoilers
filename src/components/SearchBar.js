@@ -1,6 +1,21 @@
-const SearchBar = () =>  {
+import play from './play.png';
+
+const SearchBar = (props) =>  {
     return (
-        <form action="submit">This is the search bar</form>
+        <form 
+        onSubmit={props.handleSubmit}
+        className="wrapper">
+        <label htmlFor="userMovieChoice">Enter a movie and press play</label>
+        <input 
+        onChange={props.userChoice} 
+        type="text" 
+        id="userMovieChoice" 
+        value={props.input} />
+    
+        <button type="submit">
+            <img src={play} alt="play" /> </button>
+    
+        </form>
     )
 }
 
