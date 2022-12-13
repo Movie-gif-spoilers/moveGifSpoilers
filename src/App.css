@@ -3,3 +3,11 @@
 }
 
 /* Styles */
+
+button {
+  width: 30%;
+}
+
+button img {
+  max-width: 20%;
+}
