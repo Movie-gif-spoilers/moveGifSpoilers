@@ -34,7 +34,7 @@ function App() {
 			<Header />
 			<main>
 				<SearchBar setId={setId} apiKey={apiKey} />
-				<h3>Movie id: {id}</h3>
+				<h3 className="wrapper">Movie id: {id}</h3>
 				<DisplayGifs keywords={keywords} />
 			</main>
 			<Footer />

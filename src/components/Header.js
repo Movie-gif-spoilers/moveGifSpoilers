@@ -2,10 +2,12 @@ import NavBar from './NavBar';
 
 const Header = () => {
     return (
-        <header>
+        <header className="header">
             <NavBar />
-            <h1>Hi Im the header</h1>
-            <h2>Hellooooo</h2>
+            <div className="headerFlex wrapper">
+                <h1>Out of Context Movie Spoiler</h1>
+                <h2>A GIF Generator</h2>
+            </div>
         </header>
     )
 }

@@ -27,7 +27,7 @@ const DisplayGifs = (props) => {
 	}, [props.keywords]);
 	console.log('current gifs', currentGifs);
 	return (
-		<section>
+		<section className="displayGifs wrapper">
 			<img src={currentGifs} alt="the current gif" />
 		</section>
 	);

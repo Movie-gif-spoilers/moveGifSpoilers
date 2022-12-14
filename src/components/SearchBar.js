@@ -1,4 +1,4 @@
-import play from './play.png';
+import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -33,19 +33,21 @@ const SearchBar = (props) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="wrapper">
-			<label htmlFor="userMovieChoice">Enter a movie and press play</label>
-			<input
-				onChange={userChoice}
-				type="text"
-				id="userMovieChoice"
-				value={input}
-			/>
+		<section className="searchBar">
+				<form onSubmit={handleSubmit} className="formFlex wrapper">
+					<label htmlFor="userMovieChoice">Enter a movie and press play</label>
+					<input
+						onChange={userChoice}
+						type="text"
+						id="userMovieChoice"
+						value={input}
+					/>
 
-			<button type="submit">
-				<img src={play} alt="play" />{' '}
-			</button>
-		</form>
+					<button type="submit">
+						<img src={play} alt="play" />{' '}
+					</button>
+				</form>
+		</section>
 	);
 };
 
