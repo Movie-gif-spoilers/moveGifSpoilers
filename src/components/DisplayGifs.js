@@ -10,7 +10,8 @@ const DisplayGifs = (props) => {
 
 	console.log('keywords', keywords);
 
-	// const newGifsArray = [];
+	const newGifsArray = [];
+
 	useEffect(() => {
 		keywords.forEach(async (keyword) => {
 			axios({
@@ -18,32 +19,56 @@ const DisplayGifs = (props) => {
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
 					q: keyword,
-					limit: 10,
+					limit: 3,
 				},
 			}).then((res) => {
-				console.log(res);
-				setCurrentGifs(res.data.data[(0, 1, 2)]);
+				console.log('giphy data', res.data.data);
+				// newGifsArray.push(res.data.data[0]);
+				// newGifsArray.push(`<li>${res.data.data[0].url}</li>`);
+				setCurrentGifs(res.data.data);
 			});
 		});
-		console.log('current gifs', currentGifs);
 	}, [props.keywords]);
 
-	// We store the gifs title for our alt text
-	const gifURL = currentGifs.title;
-
-	// We store the ID for our imgSrc
-	const imgSrc = currentGifs.id;
+	// let gifs = newGifsArray.map((gif, index) => {
+	// 	console.log('gif being mapped', gif);
+	// 	return (
+	// 		<li key={gif[0].id}>
+	// 			<img
+	// 				src={`https://media.giphy.com/media/${gif[0].id}/giphy.gif`}
+	// 				alt={gif[0].title}
+	// 			/>
+	// 		</li>
+	// 	);
+	// });
+	// setCurrentGifs(gifs);
+	console.log('newGifsarray', newGifsArray);
+	console.log('current gifs', currentGifs);
 
 	return (
 		<section>
-			<ul>
-				<li key={imgSrc}>
-					<img
-						src={`https://media.giphy.com/media/${imgSrc}/giphy.gif`}
-						alt={gifURL}
-					/>
-				</li>
-			</ul>
+			{
+				<ul>
+					{
+						<img
+							src={`https://media.giphy.com/media/${currentGifs[0].id}/giphy.gif`}
+							alt=""
+						/>
+					}
+					{
+						<img
+							src={`https://media.giphy.com/media/${currentGifs[1].id}/giphy.gif`}
+							alt=""
+						/>
+					}
+					{
+						<img
+							src={`https://media.giphy.com/media/${currentGifs[2].id}/giphy.gif`}
+							alt=""
+						/>
+					}
+				</ul>
+			}
 		</section>
 	);
 };
