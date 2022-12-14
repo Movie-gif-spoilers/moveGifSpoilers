@@ -10,7 +10,6 @@ import { useState, useEffect } from 'react';
 function App() {
 	// API Key
 	const apiKey = '50761410dc9e92f5fa1bd64a7884c0b0';
-	
 	// state that holds the movie's id from api
 	const [id, setId] = useState('');
 
