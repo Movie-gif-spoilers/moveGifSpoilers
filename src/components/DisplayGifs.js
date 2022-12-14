@@ -6,37 +6,43 @@ import { useEffect, useState } from 'react';
 const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
 
-	// function randomizer(arr, num) {
-	// 	const shuffled = [...arr].sort(() => 0.5 - Math.random());
-	// 	return shuffled.slice(0, num);
-	// }
-	let newGifsArray = [];
+	
+	// Store the keywords we recieve from props into a variable and then pass this through to our q
+	const keywords = props.keywords[0];
+
+	const newGifsArray = [];
 	useEffect(() => {
-		props.keywords.forEach(async (keyword) => {
-			await axios({
+			axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
-					q: 'cats',
+					q: `${keywords}`,
 					limit: 10,
 				},
-			}).then((res) => newGifsArray.push(res.data.data[0].url));
-		});
-		setCurrentGifs(newGifsArray);
-		console.log('current gifs', currentGifs);
+			})
+			.then((res) => {
+				// We take back the first three items we recieve in the array
+				setCurrentGifs(res.data.data[0, 1, 2]);
+			})
 	}, [props.keywords]);
+
+		console.log(currentGifs);
+	
+		// We store the gifs title for our alt text
+		const gifURL = currentGifs.title;
+
+		// We store the ID for our imgSrc
+		const imgSrc = currentGifs.id;
+
+		
+
 
 	return (
 		<section>
 			<ul>
-				{currentGifs.map((gifUrl) => {
-					console.log('gif being mapped ', gifUrl);
-					return (
-						<li>
-							<img src={gifUrl} alt="" />
-						</li>
-					);
-				})}
+				<li key={imgSrc}>
+					<img src={`https://media.giphy.com/media/${imgSrc}/giphy.gif`} alt={gifURL} />
+				</li>
 			</ul>
 		</section>
 	);
