@@ -10,37 +10,33 @@ const DisplayGifs = (props) => {
 	// 	const shuffled = [...arr].sort(() => 0.5 - Math.random());
 	// 	return shuffled.slice(0, num);
 	// }
-	const newGifsArray = [];
+	let newGifsArray = [];
 	useEffect(() => {
-			axios({
+		props.keywords.forEach(async (keyword) => {
+			await axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
 					q: 'cats',
 					limit: 10,
 				},
-			})
-			.then((res) => {
-				// We take back the first three items we recieve in the array
-				setCurrentGifs(res.data.data[0, 1, 2]);
-			})
+			}).then((res) => newGifsArray.push(res.data.data[0].url));
+		});
+		setCurrentGifs(newGifsArray);
+		console.log('current gifs', currentGifs);
 	}, [props.keywords]);
-	
-		// We store the gifs title for our alt text
-		const gifURL = currentGifs.title;
-
-		// We store the ID for our imgSrc
-		const imgSrc = currentGifs.id
-
-		console.log(imgSrc);
-
 
 	return (
 		<section>
 			<ul>
-				<li key={imgSrc}>
-					<img src={`https://media.giphy.com/media/${imgSrc}/giphy.gif`} alt={gifURL} />
-				</li>
+				{currentGifs.map((gifUrl) => {
+					console.log('gif being mapped ', gifUrl);
+					return (
+						<li>
+							<img src={gifUrl} alt="" />
+						</li>
+					);
+				})}
 			</ul>
 		</section>
 	);
