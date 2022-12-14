@@ -12,23 +12,36 @@ const DisplayGifs = (props) => {
 	// }
 	const newGifsArray = [];
 	useEffect(() => {
-		props.keywords.forEach((keyword) => {
 			axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
-					q: keyword,
-					limit: 1,
+					q: 'cats',
+					limit: 10,
 				},
-			}).then((res) => {
-				setCurrentGifs(res.data.data[0].url);
-			});
-		});
+			})
+			.then((res) => {
+				// We take back the first three items we recieve in the array
+				setCurrentGifs(res.data.data[0, 1, 2]);
+			})
 	}, [props.keywords]);
-	console.log('current gifs', currentGifs);
+	
+		// We store the gifs title for our alt text
+		const gifURL = currentGifs.title;
+
+		// We store the ID for our imgSrc
+		const imgSrc = currentGifs.id
+
+		console.log(imgSrc);
+
+
 	return (
 		<section>
-			<img src={currentGifs} alt="the current gif" />
+			<ul>
+				<li key={imgSrc}>
+					<img src={`https://media.giphy.com/media/${imgSrc}/giphy.gif`} alt={gifURL} />
+				</li>
+			</ul>
 		</section>
 	);
 };
