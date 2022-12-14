@@ -7,43 +7,70 @@ const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
 
 	
-	// Store the keywords we recieve from props into a variable and then pass this through to our q
-	const keywords = props.keywords[0];
+	// Store the keywords we recieve from props into a variable and then pass this through to our q. We will need splice this array of keywords to have 3 and then loop through this for 3 seperate API calls
+	const keywords = props.keywords;
+
+	console.log('these are the keywords we can loop through', keywords);
 
 	const newGifsArray = [];
 	useEffect(() => {
+			axios({
+		keywords.forEach(async (keyword) => {
 			axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
 					q: `${keywords}`,
 					limit: 10,
+					q: keyword,
+					limit: 3,
 				},
 			})
 			.then((res) => {
 				// We take back the first three items we recieve in the array
-				setCurrentGifs(res.data.data[0, 1, 2]);
+				setCurrentGifs(res.data.data[]);
 			})
 	}, [props.keywords]);
 
-		console.log(currentGifs);
-	
-		// We store the gifs title for our alt text
-		const gifURL = currentGifs.title;
-
-		// We store the ID for our imgSrc
-		const imgSrc = currentGifs.id;
-
-		
-
+	// let gifs = newGifsArray.map((gif, index) => {
+	// 	console.log('gif being mapped', gif);
+	// 	return (
+	// 		<li key={gif[0].id}>
+	// 			<img
+	// 				src={`https://media.giphy.com/media/${gif[0].id}/giphy.gif`}
+	// 				alt={gif[0].title}
+	// 			/>
+	// 		</li>
+	// 	);
+	// });
+	// setCurrentGifs(gifs);
+	console.log('newGifsarray', newGifsArray);
+	console.log('current gifs', currentGifs);
 
 	return (
 		<section>
-			<ul>
-				<li key={imgSrc}>
-					<img src={`https://media.giphy.com/media/${imgSrc}/giphy.gif`} alt={gifURL} />
-				</li>
-			</ul>
+			{
+				<ul>
+					{
+						<img
+							src={`https://media.giphy.com/media/${currentGifs[0].id}/giphy.gif`}
+							alt=""
+						/>
+					}
+					{
+						<img
+							src={`https://media.giphy.com/media/${currentGifs[1].id}/giphy.gif`}
+							alt=""
+						/>
+					}
+					{
+						<img
+							src={`https://media.giphy.com/media/${currentGifs[2].id}/giphy.gif`}
+							alt=""
+						/>
+					}
+				</ul>
+			}
 		</section>
 	);
 };
