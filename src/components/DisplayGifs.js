@@ -10,25 +10,34 @@ const DisplayGifs = (props) => {
 	// 	const shuffled = [...arr].sort(() => 0.5 - Math.random());
 	// 	return shuffled.slice(0, num);
 	// }
-	const newGifsArray = [];
+	let newGifsArray = [];
 	useEffect(() => {
-		props.keywords.forEach((keyword) => {
-			axios({
+		props.keywords.forEach(async (keyword) => {
+			await axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
 					q: keyword,
 					limit: 1,
 				},
-			}).then((res) => {
-				setCurrentGifs(res.data.data[0].url);
-			});
+			}).then((res) => newGifsArray.push(res.data.data[0].url));
 		});
+		setCurrentGifs(newGifsArray);
+		console.log('current gifs', currentGifs);
 	}, [props.keywords]);
-	console.log('current gifs', currentGifs);
+
 	return (
 		<section>
-			<img src={currentGifs} alt="the current gif" />
+			<ul>
+				{currentGifs.map((gifUrl) => {
+					console.log('gif being mapped ', gifUrl);
+					return (
+						<li>
+							<img src={gifUrl} alt="" />
+						</li>
+					);
+				})}
+			</ul>
 		</section>
 	);
 };
