@@ -23,25 +23,13 @@ const DisplayGifs = (props) => {
 				},
 			}).then((res) => {
 				console.log('giphy data', res.data.data);
-				// newGifsArray.push(res.data.data[0]);
-				// newGifsArray.push(`<li>${res.data.data[0].url}</li>`);
+
 				setCurrentGifs(res.data.data);
 			});
 		});
 	}, [props.keywords]);
 
-	// let gifs = newGifsArray.map((gif, index) => {
-	// 	console.log('gif being mapped', gif);
-	// 	return (
-	// 		<li key={gif[0].id}>
-	// 			<img
-	// 				src={`https://media.giphy.com/media/${gif[0].id}/giphy.gif`}
-	// 				alt={gif[0].title}
-	// 			/>
-	// 		</li>
-	// 	);
-	// });
-	// setCurrentGifs(gifs);
+
 	console.log('newGifsarray', newGifsArray);
 	console.log('current gifs', currentGifs);
 
