@@ -1,7 +1,6 @@
-// import axios from "axios";
-
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import watching2 from '../assets/watching2.png'
 
 const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
@@ -27,8 +26,11 @@ const DisplayGifs = (props) => {
 	}, [props.keywords]);
 	console.log('current gifs', currentGifs);
 	return (
-		<section className="displayGifs wrapper">
-			<img src={currentGifs} alt="the current gif" />
+		<section className="displayGifs">
+			<div className="gifFlex gifArea">
+				<img src={currentGifs} alt="the current gif" />
+				<img src={watching2} alt="people sitting on a bench watching a movie" />
+			</div>
 		</section>
 	);
 };
