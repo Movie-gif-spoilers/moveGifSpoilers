@@ -1,8 +1,7 @@
-// import axios from "axios";
-
 import axios from 'axios';
 import { async } from 'q';
 import { useEffect, useState } from 'react';
+import watching2 from '../assets/watching2.png'
 
 const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
@@ -39,14 +38,18 @@ const DisplayGifs = (props) => {
 	console.log('current gifs', currentGifs);
 
 	return (
-		<section>
-			<ul>
+		<section className="displayGifs">
+			<ul className="gifFlex gifArea">
 				{newGifsArray.map((gif) => (
 					<li>
 						<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="" />
 					</li>
 				))}
 			</ul>
+      
+      <div className="saveSelects">
+
+			</div>
 		</section>
 	);
 };

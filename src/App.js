@@ -31,10 +31,13 @@ function App() {
 
 	return (
 		<div className="App">
-			<Header />
+      <header>
+        <Header />
+      </header>
+      
 			<main>
 				<SearchBar setId={setId} apiKey={apiKey} />
-				<h3>Movie id: {id}</h3>
+				<h3 className="wrapper">Here's all you need to know about: (Movie id:) {id}</h3>
 				<DisplayGifs keywords={keywords} />
 			</main>
 			<Footer />
