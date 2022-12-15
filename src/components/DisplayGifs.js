@@ -10,7 +10,7 @@ const DisplayGifs = (props) => {
 	// Store the keywords we recieve from props into a variable and then pass this through to our q
 	const keywords = props.keywords[0];
 
-	const newGifsArray = [];
+	// const newGifsArray = [];
 	useEffect(() => {
 			axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
@@ -22,9 +22,9 @@ const DisplayGifs = (props) => {
 			})
 			.then((res) => {
 				// We take back the first three items we recieve in the array
-				setCurrentGifs(res.data.data[0, 1, 2]);
-			})
-	}, [props.keywords]);
+				setCurrentGifs(res.data.data[0, 1, 2])
+			});
+	}, [props.keywords])
 
 		console.log(currentGifs);
 	
