@@ -46,6 +46,10 @@ const DisplayGifs = (props) => {
 					</li>
 				))}
 			</ul>
+
+			<div className="gifFlex gifArea">
+			<img src={watching2} alt="people sitting on a bench watching a movie" />
+			</div>
       
       <div className="saveSelects">
 
