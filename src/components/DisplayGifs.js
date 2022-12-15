@@ -13,6 +13,7 @@ const DisplayGifs = (props) => {
 
 	const newGifsArray = [];
 
+
 	useEffect(() => {
 		keywords.forEach(async (keyword) => {
 			axios({
@@ -22,8 +23,10 @@ const DisplayGifs = (props) => {
 					q: keyword,
 					limit: 3,
 				},
+
 			}).then((res) => {
 				console.log('giphy data', res.data.data);
+
 
 				setCurrentGifs(res.data.data);
 			});

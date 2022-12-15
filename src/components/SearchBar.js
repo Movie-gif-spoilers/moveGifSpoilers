@@ -5,22 +5,43 @@ import axios from 'axios';
 const SearchBar = (props) => {
 	// state that holds the user's form input
 	const [input, setInput] = useState('');
-	const [savedInput, setSavedInput] = useState('');
+	const [savedInput, setSavedInput] = useState('welcome');
 
 	useEffect(() => {
-		axios({
-			url: 'https://api.themoviedb.org/3/search/movie',
-			method: 'GET',
-			dataResponse: 'json',
-			params: {
-				api_key: props.apiKey,
-				query: savedInput,
-				language: 'en-US',
-			},
-		}).then((res) => {
-			console.log('first api call', res.data.results[0]);
-			props.setId(res.data.results[0].id);
-		});
+		try {
+			axios({
+				url: 'https://api.themoviedb.org/3/search/movie',
+				method: 'GET',
+				dataResponse: 'json',
+				params: {
+					api_key: props.apiKey,
+					query: savedInput,
+					language: 'en-US',
+				},
+			}).then((res) => {
+				console.log('first api call', res.data.results[0]);
+				if (res.data.results[0] === undefined) {
+					alert("this movie does not exist, please check the spelling and try again! ")
+					console.log("this movie does not exist, please check the spelling and try again! ")
+				} else {
+					props.setId(res.data.results[0].id);
+					console.log("response", res)
+				}
+			}).catch(error => {
+				console.log("error handling", error)
+				if (error.response.status >= 500) {
+					alert("server error")
+					console.log("server error")
+				} else if (error.response.status > 300) {
+					alert("error, please try again")
+					console.log("error, please try again")
+				}
+	
+			});
+
+		} catch (error) {
+
+		}
 	}, [savedInput]);
 
 	const userChoice = (e) => {
@@ -33,6 +54,7 @@ const SearchBar = (props) => {
 	};
 
 	return (
+
 		<section className="searchBar">
 			<div>
 				<p>Life is too short to spend HOURS watching films! There are simply TOO many!</p>
@@ -45,6 +67,7 @@ const SearchBar = (props) => {
 					type="text"
 					id="userMovieChoice"
 					value={input}
+          required
 				/>
 
 				<button type="submit">
@@ -52,6 +75,7 @@ const SearchBar = (props) => {
 				</button>
 			</form>
 		</section>
+
 	);
 };
 
