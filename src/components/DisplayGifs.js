@@ -1,10 +1,12 @@
 // import axios from "axios";
 
 import axios from 'axios';
+import { async } from 'q';
 import { useEffect, useState } from 'react';
 
 const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
+
 
 	const keywords = props.keywords;
 
@@ -29,34 +31,22 @@ const DisplayGifs = (props) => {
 		});
 	}, [props.keywords]);
 
+	currentGifs.forEach((gif) => {
+		newGifsArray.push(gif.id)
+	});
 
 	console.log('newGifsarray', newGifsArray);
 	console.log('current gifs', currentGifs);
 
 	return (
 		<section>
-			{
-				<ul>
-					{
-						<img
-							src={`https://media.giphy.com/media/${currentGifs[0].id}/giphy.gif`}
-							alt=""
-						/>
-					}
-					{
-						<img
-							src={`https://media.giphy.com/media/${currentGifs[1].id}/giphy.gif`}
-							alt=""
-						/>
-					}
-					{
-						<img
-							src={`https://media.giphy.com/media/${currentGifs[2].id}/giphy.gif`}
-							alt=""
-						/>
-					}
-				</ul>
-			}
+			<ul>
+				{newGifsArray.map((gif) => (
+					<li>
+						<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="" />
+					</li>
+				))}
+			</ul>
 		</section>
 	);
 };
