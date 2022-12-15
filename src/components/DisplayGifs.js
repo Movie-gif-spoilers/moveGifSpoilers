@@ -1,49 +1,62 @@
-// import axios from "axios";
-
 import axios from 'axios';
+import { async } from 'q';
 import { useEffect, useState } from 'react';
+import watching2 from '../assets/watching2.png'
 
 const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
 
-	
-	// Store the keywords we recieve from props into a variable and then pass this through to our q
-	const keywords = props.keywords[0];
 
-	// const newGifsArray = [];
+	const keywords = props.keywords;
+
+	console.log('keywords', keywords);
+
+	const newGifsArray = [];
+
+
 	useEffect(() => {
+		keywords.forEach(async (keyword) => {
 			axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
-					q: `${keywords}`,
-					limit: 10,
+					q: keyword,
+					limit: 3,
 				},
-			})
-			.then((res) => {
-				// We take back the first three items we recieve in the array
-				setCurrentGifs(res.data.data[0, 1, 2])
+
+			}).then((res) => {
+				console.log('giphy data', res.data.data);
+
+
+				setCurrentGifs(res.data.data);
 			});
-	}, [props.keywords])
+		});
+	}, [props.keywords]);
 
-		console.log(currentGifs);
-	
-		// We store the gifs title for our alt text
-		const gifURL = currentGifs.title;
+	currentGifs.forEach((gif) => {
+		newGifsArray.push(gif.id)
+	});
 
-		// We store the ID for our imgSrc
-		const imgSrc = currentGifs.id;
-
-		
-
+	console.log('newGifsarray', newGifsArray);
+	console.log('current gifs', currentGifs);
 
 	return (
-		<section>
-			<ul>
-				<li key={imgSrc}>
-					<img src={`https://media.giphy.com/media/${imgSrc}/giphy.gif`} alt={gifURL} />
-				</li>
+		<section className="displayGifs">
+			<ul className="gifFlex gifArea">
+				{newGifsArray.map((gif) => (
+					<li>
+						<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="" />
+					</li>
+				))}
 			</ul>
+
+			<div className="gifFlex gifArea">
+			<img src={watching2} alt="people sitting on a bench watching a movie" />
+			</div>
+      
+      <div className="saveSelects">
+
+			</div>
 		</section>
 	);
 };
@@ -59,3 +72,4 @@ export default DisplayGifs;
 // 2. Return JSX with URL to display to the page
 // 2. (Put the return into an array  map through this array to display to the page Display
 // the move titles as well )
+
