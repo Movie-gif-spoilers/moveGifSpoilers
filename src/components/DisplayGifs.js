@@ -31,6 +31,9 @@ const DisplayGifs = (props) => {
 				<img src={currentGifs} alt="the current gif" />
 				<img src={watching2} alt="people sitting on a bench watching a movie" />
 			</div>
+			<div className="saveSelects">
+
+			</div>
 		</section>
 	);
 };
