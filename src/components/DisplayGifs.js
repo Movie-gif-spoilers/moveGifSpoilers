@@ -1,37 +1,53 @@
 import axios from 'axios';
+import { async } from 'q';
 import { useEffect, useState } from 'react';
 import watching2 from '../assets/watching2.png'
 
 const DisplayGifs = (props) => {
 	const [currentGifs, setCurrentGifs] = useState([]);
 
-	// function randomizer(arr, num) {
-	// 	const shuffled = [...arr].sort(() => 0.5 - Math.random());
-	// 	return shuffled.slice(0, num);
-	// }
+
+	const keywords = props.keywords;
+
+	console.log('keywords', keywords);
+
 	const newGifsArray = [];
+
 	useEffect(() => {
-		props.keywords.forEach((keyword) => {
+		keywords.forEach(async (keyword) => {
 			axios({
 				url: `https://api.giphy.com/v1/gifs/search`,
 				params: {
 					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
 					q: keyword,
-					limit: 1,
+					limit: 3,
 				},
 			}).then((res) => {
-				setCurrentGifs(res.data.data[0].url);
+				console.log('giphy data', res.data.data);
+
+				setCurrentGifs(res.data.data);
 			});
 		});
 	}, [props.keywords]);
+
+	currentGifs.forEach((gif) => {
+		newGifsArray.push(gif.id)
+	});
+
+	console.log('newGifsarray', newGifsArray);
 	console.log('current gifs', currentGifs);
+
 	return (
 		<section className="displayGifs">
-			<div className="gifFlex gifArea">
-				<img src={currentGifs} alt="the current gif" />
-				<img src={watching2} alt="people sitting on a bench watching a movie" />
-			</div>
-			<div className="saveSelects">
+			<ul className="gifFlex gifArea">
+				{newGifsArray.map((gif) => (
+					<li>
+						<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="" />
+					</li>
+				))}
+			</ul>
+      
+      <div className="saveSelects">
 
 			</div>
 		</section>
@@ -49,3 +65,4 @@ export default DisplayGifs;
 // 2. Return JSX with URL to display to the page
 // 2. (Put the return into an array  map through this array to display to the page Display
 // the move titles as well )
+
