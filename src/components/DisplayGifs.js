@@ -1,46 +1,51 @@
 import axios from 'axios';
 import { async } from 'q';
 import { useEffect, useState } from 'react';
-import watching2 from '../assets/watching2.png'
+import watching2 from '../assets/watching2.png';
+import Gif from './Gif';
 
 const DisplayGifs = (props) => {
-	const [currentGifs, setCurrentGifs] = useState([]);
-
+	// const [currentGifs, setCurrentGifs] = useState([]);
 
 	const keywords = props.keywords;
 
 	console.log('keywords', keywords);
 
-	const newGifsArray = [];
+	// useEffect(() => {
+	// 	console.log('third api call');
+	// 	const newGifsArray = [];
+	// 	keywords.forEach((keyword) => {
+	// 		console.log('giphy api call');
+	// 		axios({
+	// 			url: `https://api.giphy.com/v1/gifs/search`,
+	// 			params: {
+	// 				api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
+	// 				q: keyword,
+	// 				limit: 1,
+	// 			},
+	// 		}).then((res) => {
+	// 			newGifsArray.push(res.data.data);
+	// 		});
+	// 	});
+	// 	console.log('before setting current gifs', currentGifs);
+	// 	setCurrentGifs(newGifsArray);
+	// }, [keywords]);
 
-
-	useEffect(() => {
-		keywords.forEach(async (keyword) => {
-			axios({
-				url: `https://api.giphy.com/v1/gifs/search`,
-				params: {
-					api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
-					q: keyword,
-					limit: 3,
-				},
-
-			}).then((res) => {
-				console.log('giphy data', res.data.data);
-
-
-				setCurrentGifs(res.data.data);
-			});
-		});
-	}, [props.keywords]);
-
-	currentGifs.forEach((gif) => {
-		newGifsArray.push(gif.id)
-	});
-
-	console.log('newGifsarray', newGifsArray);
-	console.log('current gifs', currentGifs);
+	// console.log('after setting current gifs', currentGifs);
+	// const gifs = currentGifs.map((gif, index) => {
+	// 	console.log('gif being mapped', gif[0].id, currentGifs.length);
+	// 	return (
+	// 		<li>
+	// 			<img
+	// 				src={`https://media.giphy.com/media/${gif[0].id}/giphy.gif`}
+	// 				alt=""
+	// 			/>
+	// 		</li>
+	// 	);
+	// });
 
 	return (
+
 		<section className="displayGifs gifFlex">
 				<div className="gifPic">
 					{newGifsArray.map((gif) => (
@@ -73,4 +78,3 @@ export default DisplayGifs;
 // 2. Return JSX with URL to display to the page
 // 2. (Put the return into an array  map through this array to display to the page Display
 // the move titles as well )
-
