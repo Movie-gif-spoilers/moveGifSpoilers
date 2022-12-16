@@ -42,6 +42,7 @@ const SearchBar = (props) => {
 		} catch (error) {
 
 		}
+		// eslint-disable-next-line
 	}, [savedInput]);
 
 	const userChoice = (e) => {

@@ -1,6 +1,3 @@
-import axios from 'axios';
-import { async } from 'q';
-import { useEffect, useState } from 'react';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 

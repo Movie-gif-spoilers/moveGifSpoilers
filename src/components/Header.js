@@ -2,7 +2,7 @@ import NavBar from './NavBar';
 
 const Header = () => {
     return (
-        <section className="header">
+        <section className="header" id="header">
             <NavBar />
             <div className="headerFlex wrapper">
                 <h1>Out of Context Movie Spoiler</h1>
