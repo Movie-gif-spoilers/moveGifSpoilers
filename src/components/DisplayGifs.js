@@ -41,22 +41,23 @@ const DisplayGifs = (props) => {
 	console.log('current gifs', currentGifs);
 
 	return (
-		<section className="displayGifs">
-			<ul className="gifFlex gifArea">
-				{newGifsArray.map((gif) => (
-					<li>
-						<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="" />
-					</li>
-				))}
-			</ul>
+		<section className="displayGifs gifFlex">
+				<div className="gifPic">
+					{newGifsArray.map((gif) => (
+						
+							<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="current gif/keyword/title" />
+						
+					))}
+				</div>
 
-			<div className="gifFlex gifArea">
-			<img src={watching2} alt="people sitting on a bench watching a movie" />
-			</div>
+				<div className="watchingImg">
+					<img src={watching2} alt="people sitting on a bench watching a movie" />
+				</div>
       
-      <div className="saveSelects">
+			<div className="saveSelects">
 
 			</div>
+
 		</section>
 	);
 };
