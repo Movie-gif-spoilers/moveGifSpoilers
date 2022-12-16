@@ -158,6 +158,18 @@ button img {
   
 }
 
+.shuffleButton {
+  background-color: #B3D5DF;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  align-content: center;
+  padding: 10px;
+  margin-top: 15px;
+  box-shadow: 0 0 5px 5px pink;
+}
+
 /* DISPLAY GIFS */
 
 .displayGifs {
