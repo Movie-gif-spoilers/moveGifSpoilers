@@ -22,28 +22,19 @@ function Gif(props) {
 	console.log('after setting current gifs', currentGifs);
 
 	return (
-		<section className="displayGifs">
-			<ul className="gifFlex gifArea">
-				{currentGifs.map((gif) => {
-					console.log('gif being mapped', gif.id);
-					return (
-						<li>
-							<img
-								src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
-								alt=""
-							/>
-						</li>
-					);
-				})}
-			</ul>
-			<div className="gifFlex gifArea">
-				{/* <img
-					src={watching2}
-					alt="people sitting on a bench watching a movie"
-				/> */}
-			</div>
-			<div className="saveSelects"></div>
-		</section>
+		<>
+			{currentGifs.map((gif) => {
+				console.log('gif being mapped', gif.id);
+				return (
+					<li>
+						<img
+							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
+							alt=""
+						/>
+					</li>
+				);
+			})}
+		</>
 	);
 }
 

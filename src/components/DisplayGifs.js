@@ -45,23 +45,23 @@ const DisplayGifs = (props) => {
 	// });
 
 	return (
-
 		<section className="displayGifs gifFlex">
-				<div className="gifPic">
-			<ul className="gifFlex gifArea">
-				{keywords.map((keyword) => {
-					return <Gif keyword={keyword} />;
-				})}
-				</div>
-
-				<div className="watchingImg">
-					<img src={watching2} alt="people sitting on a bench watching a movie" />
-				</div>
-      
-			<div className="saveSelects">
-
+			<div className="gifPic">
+				<ul className="gifFlex gifArea">
+					{keywords.map((keyword) => {
+						return <Gif keyword={keyword} />;
+					})}
+				</ul>
 			</div>
 
+			<div className="watchingImg">
+				<img
+					src={watching2}
+					alt="people sitting on a bench watching a movie"
+				/>
+			</div>
+
+			<div className="saveSelects"></div>
 		</section>
 	);
 };
