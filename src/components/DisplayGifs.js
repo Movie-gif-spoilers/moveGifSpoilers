@@ -48,11 +48,10 @@ const DisplayGifs = (props) => {
 
 		<section className="displayGifs gifFlex">
 				<div className="gifPic">
-					{newGifsArray.map((gif) => (
-						
-							<img src={`https://media.giphy.com/media/${gif}/giphy.gif`} alt="current gif/keyword/title" />
-						
-					))}
+			<ul className="gifFlex gifArea">
+				{keywords.map((keyword) => {
+					return <Gif keyword={keyword} />;
+				})}
 				</div>
 
 				<div className="watchingImg">
