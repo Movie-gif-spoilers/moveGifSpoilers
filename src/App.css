@@ -72,7 +72,10 @@ main {
 }
 
 /* .wrapper {
-  max-width: 85%;
+  width: 85%;
+  margin: auto;
+  max-width: 1901px;
+  
 } */
 
 /* NAV BAR */
@@ -164,16 +167,22 @@ button img {
 .gifFlex {
   display: flex;
   flex-direction: column;
+}
+
+.gifPic {
+  display: flex;
+  
+}
+
+.gifPic img {
+  width: 40%; 
+}
+
+.watchingImg img {
+  display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.gifArea img:first-child {
-  margin-top: 3rem;
-}
-
-.gifArea img:nth-child(2) {
-  width: 50%;
+  width: 70%;
 }
 
 /* FOOTER */
