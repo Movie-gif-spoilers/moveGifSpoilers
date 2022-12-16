@@ -2,47 +2,20 @@ import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 
 const DisplayGifs = (props) => {
-	// const [currentGifs, setCurrentGifs] = useState([]);
+	function getMultipleRandom(arr, num) {
+		const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
-	const keywords = props.keywords;
+		return shuffled.slice(0, num);
+	}
+
+	const keywords = getMultipleRandom(props.keywords, 3);
+	console.log('randoms', getMultipleRandom(props.keywords, 3));
 
 	console.log('keywords', keywords);
 
-	// useEffect(() => {
-	// 	console.log('third api call');
-	// 	const newGifsArray = [];
-	// 	keywords.forEach((keyword) => {
-	// 		console.log('giphy api call');
-	// 		axios({
-	// 			url: `https://api.giphy.com/v1/gifs/search`,
-	// 			params: {
-	// 				api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
-	// 				q: keyword,
-	// 				limit: 1,
-	// 			},
-	// 		}).then((res) => {
-	// 			newGifsArray.push(res.data.data);
-	// 		});
-	// 	});
-	// 	console.log('before setting current gifs', currentGifs);
-	// 	setCurrentGifs(newGifsArray);
-	// }, [keywords]);
-
-	// console.log('after setting current gifs', currentGifs);
-	// const gifs = currentGifs.map((gif, index) => {
-	// 	console.log('gif being mapped', gif[0].id, currentGifs.length);
-	// 	return (
-	// 		<li>
-	// 			<img
-	// 				src={`https://media.giphy.com/media/${gif[0].id}/giphy.gif`}
-	// 				alt=""
-	// 			/>
-	// 		</li>
-	// 	);
-	// });
-
 	return (
 		<section className="displayGifs gifFlex">
+			<button onClick={getMultipleRandom(props.keywords, 3)}> click</button>
 			<div className="gifPic">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
