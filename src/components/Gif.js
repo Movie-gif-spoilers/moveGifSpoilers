@@ -1,5 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init();
 
 function Gif(props) {
 	const [currentGifs, setCurrentGifs] = useState([]);
@@ -26,7 +29,7 @@ function Gif(props) {
 			{currentGifs.map((gif) => {
 				console.log('gif being mapped', gif.id);
 				return (
-					<li>
+					<li data-aos="flip-left">
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt=""
