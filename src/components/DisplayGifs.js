@@ -15,8 +15,8 @@ const DisplayGifs = (props) => {
 
 	return (
 		<section className="displayGifs gifFlex">
-			<button onClick={getMultipleRandom(props.keywords, 3)}> click</button>
-			<div className="gifPic">
+			<button onClick={getMultipleRandom(props.keywords, 3)}> click for new set of random gifs</button>
+			<div className="gifPic wrapper">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
 						return <Gif keyword={keyword} />;
@@ -24,7 +24,7 @@ const DisplayGifs = (props) => {
 				</ul>
 			</div>
 
-			<div className="watchingImg">
+			<div className="watchingImg wrapper">
 				<img
 					src={watching2}
 					alt="people sitting on a bench watching a movie"
