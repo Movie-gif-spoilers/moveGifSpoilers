@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import './components/FontAwesome.js';
 
 function App() {
 	// API Key
