@@ -7,29 +7,24 @@ import Footer from './components/Footer.js';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { getKeywords } from "./components/ApiCalls.js"
 import './components/FontAwesome.js';
+
 
 function App() {
 	// API Key
 	const apiKey = '66a65cc7632ce390e4eb0fe1e74602e1';
-
 	// state that holds the movie's id from api
+
 	const [id, setId] = useState('474395');
 
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
+	const[movieName, setMovieName] = useState("");
+
 	useEffect(() => {
-		console.log('second api call');
-		axios({
-			url: `https://api.themoviedb.org/3/movie/${id}/keywords?api_key=${apiKey}`,
-		}).then((res) => {
-			const newKeywordsArray = [];
-			res.data.keywords.forEach((keyword) => {
-				newKeywordsArray.push(keyword.name);
-			});
-			setKeywords(newKeywordsArray);
-		});
+		if (id) { getKeywords(apiKey, id, setKeywords) }
 	}, [id]);
 
 	return (
@@ -39,9 +34,9 @@ function App() {
 			</header>
 
 			<main>
-				<SearchBar setId={setId} apiKey={apiKey} />
+				<SearchBar setId={setId} apiKey={apiKey} setMovieName={setMovieName} />
 				<h3>
-					Here's all you need to know about: (Movie id:) {id}
+					Here's all you need to know about: {movieName}
 				</h3>
 				<DisplayGifs keywords={keywords} />
 			</main>
