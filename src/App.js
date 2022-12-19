@@ -4,6 +4,7 @@ import Header from './components/Header.js';
 import DisplayGifs from './components/DisplayGifs.js';
 import SearchBar from './components/SearchBar';
 import Footer from './components/Footer.js';
+import ApiCalls from "./components/ApiCalls.js"
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
