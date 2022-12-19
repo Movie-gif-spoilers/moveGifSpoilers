@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const SearchBar = (props) => {
 	// state that holds the user's form input
 	const [input, setInput] = useState('');
-	const [savedInput, setSavedInput] = useState('welcome');
+	const [savedInput, setSavedInput] = useState('movies');
 
 	useEffect(() => {
 		try {
