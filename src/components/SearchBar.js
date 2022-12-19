@@ -35,7 +35,11 @@ const SearchBar = (props) => {
 					plot... in gif form!
 				</p>
 			</div>
-			<form onSubmit={handleSubmit} className="formFlex wrapper">
+			<form
+				action="submit"
+				onSubmit={handleSubmit}
+				className="formFlex wrapper"
+			>
 				<label htmlFor="userMovieChoice">
 					Enter a movie and press play
 				</label>
