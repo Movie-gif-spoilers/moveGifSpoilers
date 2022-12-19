@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
-import { getGif } from "../components/ApiCalls.js"
+import 'aos/dist/aos.css';
+import { getGif } from '../components/ApiCalls.js';
 AOS.init();
 
 function Gif(props) {
@@ -10,7 +10,7 @@ function Gif(props) {
 	console.log('I just rendered with these keywords', props.keyword);
 
 	useEffect(() => {
-		getGif(props, setCurrentGifs)
+		getGif(props, setCurrentGifs);
 	}, [props.keyword]);
 
 	console.log('after setting current gifs', currentGifs);
@@ -20,7 +20,7 @@ function Gif(props) {
 			{currentGifs.map((gif) => {
 				console.log('gif being mapped', gif.id);
 				return (
-					<li data-aos="flip-left">
+					<li data-aos="flip-left" key={gif.id}>
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt=""

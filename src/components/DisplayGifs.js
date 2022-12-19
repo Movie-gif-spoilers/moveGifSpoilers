@@ -3,7 +3,8 @@ import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 
 const DisplayGifs = (props) => {
-	const [ shuffle, setShuffle ] = useState([]);
+	// eslint-disable-next-line
+	const [shuffle, setShuffle] = useState([]);
 
 	function getMultipleRandom(arr, num) {
 		const shuffled = [...arr].sort(() => 0.5 - Math.random());
@@ -13,8 +14,7 @@ const DisplayGifs = (props) => {
 
 	function handleRandomize() {
 		setShuffle(getMultipleRandom(props.keywords, 5));
-		}
-
+	}
 
 	const keywords = getMultipleRandom(props.keywords, 5);
 	console.log('randoms', getMultipleRandom(props.keywords, 5));
@@ -23,7 +23,6 @@ const DisplayGifs = (props) => {
 
 	return (
 		<section className="displayGifs gifFlex" id="displayGifs">
-			
 			<div className="gifPic wrapper">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
@@ -32,9 +31,11 @@ const DisplayGifs = (props) => {
 				</ul>
 			</div>
 
-			<button className='shuffleButton' onClick={handleRandomize}>Click for new set of random gifs</button>
+			<button className="shuffleButton" onClick={handleRandomize}>
+				Click for new set of random gifs
+			</button>
 
-			<div className="watchingImg"/>
+			<div className="watchingImg" />
 			<div className="watchingImg wrapper">
 				<img
 					src={watching2}

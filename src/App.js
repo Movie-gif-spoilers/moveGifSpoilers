@@ -4,13 +4,9 @@ import Header from './components/Header.js';
 import DisplayGifs from './components/DisplayGifs.js';
 import SearchBar from './components/SearchBar';
 import Footer from './components/Footer.js';
-import ApiCalls from "./components/ApiCalls.js"
-import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Swal from 'sweetalert2';
-import { getKeywords } from "./components/ApiCalls.js"
+import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
-
 
 function App() {
 	// API Key
@@ -22,10 +18,12 @@ function App() {
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
-	const[movieTitle, setMovieTitle] = useState("");
+	const [movieTitle, setMovieTitle] = useState('');
 
 	useEffect(() => {
-		if (id) { getKeywords(apiKey, id, setKeywords) }
+		if (id) {
+			getKeywords(apiKey, id, setKeywords);
+		}
 	}, [id]);
 
 	return (
@@ -35,10 +33,12 @@ function App() {
 			</header>
 
 			<main>
-				<SearchBar setId={setId} apiKey={apiKey} setMovieTitle={setMovieTitle} />
-				<h3>
-					Here's all you need to know about: {movieTitle}
-				</h3>
+				<SearchBar
+					setId={setId}
+					apiKey={apiKey}
+					setMovieTitle={setMovieTitle}
+				/>
+				<h3>Here's all you need to know about: {movieTitle}</h3>
 				<DisplayGifs keywords={keywords} />
 			</main>
 			<Footer />
