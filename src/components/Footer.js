@@ -7,7 +7,7 @@ const Footer = () => {
                     <a href="https://aaronthomas.dev/" target="_blank" rel="noreferrer"> Aaaron Thomas</a>, 
                     <a href="https://jenniferblakney.dev" target="_blank" rel="noreferrer"> Jennifer Blakney</a>, 
                     <a href="https://juniorbrempong.com/" target="_blank" rel="noreferrer"> Junior Brempong</a>, &
-                    <a href="www.rebeccaromeo.dev" target="_blank" rel="noreferrer"> Rebecca Romeo</a>
+                    <a href="https://rebeccaromeo.dev" target="_blank" rel="noreferrer"> Rebecca Romeo</a>
                 </p>
             </div>
         </footer>

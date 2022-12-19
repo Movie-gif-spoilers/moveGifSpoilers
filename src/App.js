@@ -6,6 +6,8 @@ import SearchBar from './components/SearchBar';
 import Footer from './components/Footer.js';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
+import './components/FontAwesome.js';
 
 function App() {
 	// API Key
@@ -38,7 +40,7 @@ function App() {
 
 			<main>
 				<SearchBar setId={setId} apiKey={apiKey} />
-				<h3 className="wrapper">
+				<h3>
 					Here's all you need to know about: (Movie id:) {id}
 				</h3>
 				<DisplayGifs keywords={keywords} />

@@ -1,6 +1,7 @@
 import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const SearchBar = (props) => {
 	// state that holds the user's form input
@@ -21,8 +22,17 @@ const SearchBar = (props) => {
 			}).then((res) => {
 				console.log('first api call', res.data.results[0]);
 				if (res.data.results[0] === undefined) {
-					alert("this movie does not exist, please check the spelling and try again! ")
-					console.log("this movie does not exist, please check the spelling and try again! ")
+
+					Swal.fire({
+						icon: 'error',
+						title: 'This movie does not exist, please check the spelling and try again!',
+						background: '#B3D5DF',
+						color: '#616d6b',
+						borderRadius: '1',
+						showConfirmButton: false,
+						timer: 3000
+					})
+					
 				} else {
 					props.setId(res.data.results[0].id);
 					console.log("response", res)
@@ -68,12 +78,15 @@ const SearchBar = (props) => {
 					type="text"
 					id="userMovieChoice"
 					value={input}
-          required
+          			required
 				/>
-
-				<button type="submit">
-					<img src={play} alt="play" />{' '}
-				</button>
+				
+					<button type="submit">
+						<a href="#displayGifs">
+						<img src={play} alt="play" />{' '}
+						</a>
+					</button>
+				
 			</form>
 		</section>
 

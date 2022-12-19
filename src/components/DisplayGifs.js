@@ -1,12 +1,20 @@
+import { useState } from 'react';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 
 const DisplayGifs = (props) => {
+	const [ shuffle, setShuffle ] = useState([]);
+
 	function getMultipleRandom(arr, num) {
 		const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
 		return shuffled.slice(0, num);
 	}
+
+	function handleRandomize() {
+		setShuffle(getMultipleRandom(props.keywords, 3));
+		}
+
 
 	const keywords = getMultipleRandom(props.keywords, 3);
 	console.log('randoms', getMultipleRandom(props.keywords, 3));
@@ -14,9 +22,9 @@ const DisplayGifs = (props) => {
 	console.log('keywords', keywords);
 
 	return (
-		<section className="displayGifs gifFlex">
-			<button onClick={getMultipleRandom(props.keywords, 3)}> click</button>
-			<div className="gifPic">
+		<section className="displayGifs gifFlex" id="displayGifs">
+			
+			<div className="gifPic wrapper">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
 						return <Gif keyword={keyword} />;
@@ -24,7 +32,10 @@ const DisplayGifs = (props) => {
 				</ul>
 			</div>
 
-			<div className="watchingImg">
+			<button className='shuffleButton' onClick={handleRandomize}>Click for new set of random gifs</button>
+
+			<div className="watchingImg"/>
+			<div className="watchingImg wrapper">
 				<img
 					src={watching2}
 					alt="people sitting on a bench watching a movie"
