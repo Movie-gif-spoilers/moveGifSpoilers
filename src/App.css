@@ -285,7 +285,8 @@ h2 {
 }
 h3 {
   font-size: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 0;
+  padding-top: 1.5rem;
 }
 p {
   font-size: 1.5rem;
@@ -318,7 +319,7 @@ header {
 }
 
 main {
-  background-color: #B3D5DF;
+background-color: rgb(171, 190, 186);;
 }
 
 .App {
@@ -336,6 +337,7 @@ main {
 nav {
   display: flex;
   justify-content: space-evenly;
+  padding: 0.5rem 0;
 }
 
 .houseIcon svg, .heartIcon svg {
@@ -369,12 +371,9 @@ nav {
 
 .searchBar {
   background-color:#B3D5DF;
+  padding-top: 5rem;
 }
 
-.searchBar p:first-child {
-  margin-top: 0;
-  padding-top: 2rem;
-}
 
 form {
   padding-top: 2rem;
@@ -452,7 +451,8 @@ button img {
 .gifFlex .gifArea {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem 1rem;
+  gap: 2.5rem 1rem;
+  justify-content: center;
 }
 
 .gifPic img {
@@ -466,6 +466,7 @@ li {
   padding: 15px;
   height: 300px;
   width: 300px;
+  margin-bottom: 40px;
 }
 
 .watchingImg img {

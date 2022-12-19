@@ -4,16 +4,19 @@ import Header from './components/Header.js';
 import DisplayGifs from './components/DisplayGifs.js';
 import SearchBar from './components/SearchBar';
 import Footer from './components/Footer.js';
+import ApiCalls from "./components/ApiCalls.js"
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import { getKeywords } from "./components/ApiCalls.js"
 import './components/FontAwesome.js';
+
 
 function App() {
 	// API Key
 	const apiKey = '66a65cc7632ce390e4eb0fe1e74602e1';
-
 	// state that holds the movie's id from api
+
 	const [id, setId] = useState('474395');
 
 	// state that holds movie title 
@@ -22,16 +25,9 @@ function App() {
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
+
 	useEffect(() => {
-		axios({
-			url: `https://api.themoviedb.org/3/movie/${id}/keywords?api_key=${apiKey}`,
-		}).then((res) => {
-			const newKeywordsArray = [];
-			res.data.keywords.forEach((keyword) => {
-				newKeywordsArray.push(keyword.name);
-			});
-			setKeywords(newKeywordsArray);
-		});
+		if (id) { getKeywords(apiKey, id, setKeywords) }
 	}, [id]);
 
 
@@ -43,7 +39,7 @@ function App() {
 			</header>
 
 			<main>
-				<SearchBar setId={setId} apiKey={apiKey} setMovieTitle={setMovieTitle}/>
+				<SearchBar setId={setId} apiKey={apiKey} setMovieTitle={setMovieTitle} />
 				<h3>
 					Here's all you need to know about: {movieTitle}
 				</h3>
