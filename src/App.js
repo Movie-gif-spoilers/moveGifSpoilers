@@ -22,7 +22,7 @@ function App() {
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
-	const[movieName, setMovieName] = useState("");
+	const[movieTitle, setMovieTitle] = useState("");
 
 	useEffect(() => {
 		if (id) { getKeywords(apiKey, id, setKeywords) }
@@ -35,9 +35,9 @@ function App() {
 			</header>
 
 			<main>
-				<SearchBar setId={setId} apiKey={apiKey} setMovieName={setMovieName} />
+				<SearchBar setId={setId} apiKey={apiKey} setMovieTitle={setMovieTitle} />
 				<h3>
-					Here's all you need to know about: {movieName}
+					Here's all you need to know about: {movieTitle}
 				</h3>
 				<DisplayGifs keywords={keywords} />
 			</main>

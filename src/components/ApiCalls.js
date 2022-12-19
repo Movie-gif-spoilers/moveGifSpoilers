@@ -28,7 +28,7 @@ export const getMovieId = async(props, savedInput) => {
         
       } else {
         props.setId(res.data.results[0].id);
-        props.setMovieName(res.data.results[0].title);
+        props.setMovieTitle(res.data.results[0].title);
       }
     } catch (error) {
       console.log("checking errors", error)
