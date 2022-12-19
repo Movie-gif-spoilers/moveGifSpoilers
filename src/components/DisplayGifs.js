@@ -12,12 +12,12 @@ const DisplayGifs = (props) => {
 	}
 
 	function handleRandomize() {
-		setShuffle(getMultipleRandom(props.keywords, 3));
+		setShuffle(getMultipleRandom(props.keywords, 5));
 		}
 
 
-	const keywords = getMultipleRandom(props.keywords, 3);
-	console.log('randoms', getMultipleRandom(props.keywords, 3));
+	const keywords = getMultipleRandom(props.keywords, 5);
+	console.log('randoms', getMultipleRandom(props.keywords, 5));
 
 	console.log('keywords', keywords);
 
