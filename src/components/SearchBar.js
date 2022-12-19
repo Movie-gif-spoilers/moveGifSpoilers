@@ -7,14 +7,12 @@ const SearchBar = (props) => {
 	const [input, setInput] = useState('');
 	const [savedInput, setSavedInput] = useState('movies');
 
-
-
 	useEffect(() => {
-			if (props.id || savedInput) { 
-				getMovieId(props, savedInput) 
-			}
-	}, [savedInput]) 
-
+		if (props.id || savedInput) {
+			getMovieId(props, savedInput);
+		}
+		// eslint-disable-next-line
+	}, [savedInput]);
 
 	const userChoice = (e) => {
 		setInput(e.target.value);
@@ -28,31 +26,36 @@ const SearchBar = (props) => {
 
 
 	return (
-
 		<section className="searchBar">
 			<div>
-				<p>Life is too short to spend HOURS watching films! There are simply TOO many!</p>
-				<p>Search a movie title to find out all you need to know about the plot... in gif form!</p>
+				<p>
+					Life is too short to spend HOURS watching films! There are simply
+					TOO many!
+				</p>
+				<p>
+					Search a movie title to find out all you need to know about the
+					plot... in gif form!
+				</p>
 			</div>
 			<form onSubmit={handleSubmit} className="formFlex wrapper">
-				<label htmlFor="userMovieChoice">Enter a movie and press play</label>
+				<label htmlFor="userMovieChoice">
+					Enter a movie and press play
+				</label>
 				<input
 					onChange={userChoice}
 					type="text"
 					id="userMovieChoice"
 					value={input}
-          required
+					required
 				/>
-				
-					<button type="submit">
-						<a href="#displayGifs">
+
+				<button type="submit">
+					<a href="#displayGifs">
 						<img src={play} alt="play" />{' '}
-						</a>
-					</button>
-				
+					</a>
+				</button>
 			</form>
 		</section>
-
 	);
 };
 

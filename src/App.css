@@ -479,6 +479,10 @@ li {
   width: 40%;
 }
 
+.giphyIcon {
+  margin-left: -190px;
+}
+
 /* FOOTER */
 
 footer p {
