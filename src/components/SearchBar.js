@@ -5,7 +5,8 @@ import { getMovieId } from './ApiCalls';
 const SearchBar = (props) => {
 	// state that holds the user's form input
 	const [input, setInput] = useState('');
-	const [savedInput, setSavedInput] = useState('');
+	const [savedInput, setSavedInput] = useState('movies');
+
 
 
 	useEffect(() => {
@@ -40,10 +41,13 @@ const SearchBar = (props) => {
 					value={input}
           required
 				/>
-
-				<button type="submit">
-					<img src={play} alt="play" />{' '}
-				</button>
+				
+					<button type="submit">
+						<a href="#displayGifs">
+						<img src={play} alt="play" />{' '}
+						</a>
+					</button>
+				
 			</form>
 		</section>
 

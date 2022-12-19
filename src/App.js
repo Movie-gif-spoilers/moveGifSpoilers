@@ -8,12 +8,16 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { getKeywords } from "./components/ApiCalls.js"
+import './components/FontAwesome.js';
+
 
 function App() {
 	// API Key
 	const apiKey = '66a65cc7632ce390e4eb0fe1e74602e1';
 	// state that holds the movie's id from api
-	const [id, setId] = useState('');
+
+	const [id, setId] = useState('474395');
+
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 

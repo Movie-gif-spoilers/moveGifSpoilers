@@ -13,6 +13,10 @@ body {
   margin: 0
 }
 
+p {
+  margin: 0;
+}
+
 article,
 aside,
 footer,
@@ -262,7 +266,8 @@ html {
 
 h1, 
 h2, 
-h3 {
+h3,
+button {
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -273,7 +278,7 @@ label {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 h2 {
   font-size: 3rem;
@@ -308,7 +313,7 @@ header {
   background-image: url('./assets/popcorn.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 1rem;
+  background-position: .01rem;
   height: 100vh;
 }
 
@@ -328,14 +333,14 @@ main {
 
 /* NAV BAR */
 
-nav .iconFlex {
+nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-nav .houseIcon, .heartIcon {
-  max-width: 5%;
-  margin: 2%;
+.houseIcon svg, .heartIcon svg {
+  font-size: 4rem;
+  color: #e0b22a;
 }
 
 .houseIcon:hover, .heartIcon:hover {
@@ -378,11 +383,13 @@ form {
 
 label {
   font-weight: 700;
+  font-size: 1.25rem;
   margin: 1rem;
 }
 input {
+  text-align: center;
   margin: 1rem;
-  height: 2rem;
+  height: 3rem;
   width: 15rem;
   background-color: #EADBC4;
   border: none;
@@ -395,15 +402,15 @@ input {
 }
 
 button {
-  width: 5%;
+  width: 7%;
   background-color: transparent;
   border: none;
+  margin-left: .75rem;
+  margin-bottom: .5rem;
 }
 
 button img {
-  width: 100%;
-  /* height: 50%; */
-  
+  width: 100%; 
 }
 
 .shuffleButton {
@@ -414,8 +421,13 @@ button img {
   margin: 0 auto;
   align-content: center;
   padding: 10px;
-  margin-top: 15px;
-  box-shadow: 0 0 5px 5px pink;
+  margin-top: 2rem;
+  box-shadow: 0 0 2px 2px #e0b22a;
+}
+.shuffleButton:hover {
+  box-shadow: 0 0 5px 5px #e0b22a;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 /* DISPLAY GIFS */
@@ -433,6 +445,7 @@ button img {
 .gifFlex .gifArea {
   display: flex;
   flex-wrap: wrap;
+  gap: 3rem 1rem;
 }
 
 .gifPic img {
@@ -450,6 +463,7 @@ li {
 
 .watchingImg img {
   width: 100%;
+  margin-top: 4rem;
   margin-bottom: -.2rem;
 }
 

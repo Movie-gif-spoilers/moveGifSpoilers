@@ -12,18 +12,18 @@ const DisplayGifs = (props) => {
 	}
 
 	function handleRandomize() {
-		setShuffle(getMultipleRandom(props.keywords, 3));
+		setShuffle(getMultipleRandom(props.keywords, 5));
 		}
 
 
-	const keywords = getMultipleRandom(props.keywords, 3);
-	console.log('randoms', getMultipleRandom(props.keywords, 3));
+	const keywords = getMultipleRandom(props.keywords, 5);
+	console.log('randoms', getMultipleRandom(props.keywords, 5));
 
 	console.log('keywords', keywords);
 
 	return (
-		<section className="displayGifs gifFlex">
-			<button className='shuffleButton' onClick={handleRandomize}>Click for new set of random gifs</button>
+		<section className="displayGifs gifFlex" id="displayGifs">
+			
 			<div className="gifPic wrapper">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
@@ -31,6 +31,8 @@ const DisplayGifs = (props) => {
 					})}
 				</ul>
 			</div>
+
+			<button className='shuffleButton' onClick={handleRandomize}>Click for new set of random gifs</button>
 
 			<div className="watchingImg"/>
 			<div className="watchingImg wrapper">
