@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 const SearchBar = (props) => {
 	// state that holds the user's form input
 	const [input, setInput] = useState('');
-	const [savedInput, setSavedInput] = useState('welcome');
+	const [savedInput, setSavedInput] = useState('movies');
 
 	useEffect(() => {
 		try {
@@ -22,7 +22,7 @@ const SearchBar = (props) => {
 			}).then((res) => {
 				console.log('first api call', res.data.results[0]);
 				if (res.data.results[0] === undefined) {
-					
+
 					Swal.fire({
 						icon: 'error',
 						title: 'This movie does not exist, please check the spelling and try again!',
@@ -84,10 +84,13 @@ const SearchBar = (props) => {
 					value={input}
           			required
 				/>
-
-				<button type="submit">
-					<img src={play} alt="play" />{' '}
-				</button>
+				
+					<button type="submit">
+						<a href="#displayGifs">
+						<img src={play} alt="play" />{' '}
+						</a>
+					</button>
+				
 			</form>
 		</section>
 

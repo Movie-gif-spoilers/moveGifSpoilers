@@ -7,13 +7,14 @@ import Footer from './components/Footer.js';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
+import './components/FontAwesome.js';
 
 function App() {
 	// API Key
 	const apiKey = '66a65cc7632ce390e4eb0fe1e74602e1';
 
 	// state that holds the movie's id from api
-	const [id, setId] = useState('10625');
+	const [id, setId] = useState('474395');
 
 	// state that holds movie title 
 	const [ movieTitle, setMovieTitle ] = useState('');
