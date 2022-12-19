@@ -474,6 +474,10 @@ li {
   margin-bottom: -.2rem;
 }
 
+.giphyClick {
+  width: 40%;
+}
+
 /* FOOTER */
 
 footer p {

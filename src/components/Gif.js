@@ -23,6 +23,14 @@ function Gif(props) {
 	}, [props.keyword]);
 
 	// console.log('after setting current gifs', currentGifs);
+	function openGiphyByMethod (e) {
+		console.log(e);
+		// alert("testing")
+		window.open(`https://giphy.com/search/${props.keyword}`)
+	}
+
+	console.log(props);
+
 
 	return (
 		<>
@@ -35,6 +43,9 @@ function Gif(props) {
 							alt=""
 						/>
 						<p>{props.keyword}</p>
+						<button className='giphyClick' onClick={openGiphyByMethod}>
+							<img className="giphyIcon" src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg" alt="" />
+						</button>
 					</li>
 				);
 			})}
