@@ -11,6 +11,7 @@ function Gif(props) {
 
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
+		// eslint-disable-next-line
 	}, [props.keyword]);
 
 	console.log('after setting current gifs', currentGifs);
