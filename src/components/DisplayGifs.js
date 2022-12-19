@@ -17,7 +17,6 @@ const DisplayGifs = (props) => {
 
 
 	const keywords = getMultipleRandom(props.keywords, 5);
-	// console.log('randoms', getMultipleRandom(props.keywords, 5));
 
 	// console.log('keywords', keywords);
 
