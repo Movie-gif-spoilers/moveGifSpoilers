@@ -34,7 +34,7 @@ function Gif(props) {
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt=""
 						/>
-						<p>{props.keyword}</p>
+						<p className='keywordParagraph'>{props.keyword}</p>
 						<button className='giphyClick' onClick={openGiphyByMethod}>
 							<img className="giphyIcon" src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg" alt="" />
 						</button>
