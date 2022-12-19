@@ -15,11 +15,13 @@ function App() {
 	// state that holds the movie's id from api
 	const [id, setId] = useState('10625');
 
+	// state that holds movie title 
+	const [ movieTitle, setMovieTitle ] = useState('');
+
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
 	useEffect(() => {
-		console.log('second api call');
 		axios({
 			url: `https://api.themoviedb.org/3/movie/${id}/keywords?api_key=${apiKey}`,
 		}).then((res) => {
@@ -31,6 +33,8 @@ function App() {
 		});
 	}, [id]);
 
+
+
 	return (
 		<div className="App">
 			<header>
@@ -38,9 +42,9 @@ function App() {
 			</header>
 
 			<main>
-				<SearchBar setId={setId} apiKey={apiKey} />
+				<SearchBar setId={setId} apiKey={apiKey} setMovieTitle={setMovieTitle}/>
 				<h3>
-					Here's all you need to know about: (Movie id:) {id}
+					Here's all you need to know about: {movieTitle}
 				</h3>
 				<DisplayGifs keywords={keywords} />
 			</main>

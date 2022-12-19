@@ -388,6 +388,13 @@ input {
   border: none;
 }
 
+.movieTitle {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .formFlex {
   display: flex;
   justify-content: center;

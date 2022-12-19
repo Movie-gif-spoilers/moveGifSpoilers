@@ -35,7 +35,9 @@ const SearchBar = (props) => {
 					
 				} else {
 					props.setId(res.data.results[0].id);
-					console.log("response", res)
+					// console.log(res.data.results[0].original_title);
+					props.setMovieTitle(res.data.results[0].title)
+					// console.log('name of movie from api call', movieTitle);
 				}
 			}).catch(error => {
 				console.log("error handling", error)
@@ -63,6 +65,8 @@ const SearchBar = (props) => {
 		e.preventDefault();
 		setSavedInput(input);
 	};
+
+
 
 	return (
 
