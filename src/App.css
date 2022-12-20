@@ -26,7 +26,7 @@ p, h1, h2, h3, button, ul, li {
   padding: 0;
 }
 
-header, footer {
+header, footer, input {
   background-color: #EADBC4;
 }
 
@@ -42,12 +42,13 @@ h1,
 h2, 
 h3,
 button,
-input {
+input,
+nav p {
   font-family: 'Josefin Sans', sans-serif;
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
 }
 h2 {
   font-size: 2.8rem;
@@ -79,28 +80,14 @@ h1, h2 {
 	-1px -1px 5px white;
 }
 
-.searchBarH3, .gifsH3, .welcomeH3, .shuffleButton {
+.searchBarH3, .gifsH3, .welcomeH3, .viewSavedH3, .shuffleButton, .favesButton {
   text-shadow: -1px 0px 2px white;
 }
 
-/* NAV BAR */
-nav {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0 0;
-  gap: 3.5rem;
-  font-weight: bold;
-}
-
+/* NAV ICONS */
 .houseIcon, .heartIcon {
   font-size: 3rem;
   color: rgba(255, 114, 107, 0.9);
-}
-
-.home:hover, .favs:hover,
-.home:focus, .favs:focus {
-  transform: scale(1.15);
-  transition: 0.3s;
 }
 
 /* HEADER */
@@ -114,7 +101,7 @@ header {
 }
 
 .header h1 {
-  padding: 15vh 0 2rem;
+  padding: 25vh 0 2rem;
 }
 
 
@@ -139,7 +126,6 @@ input {
   margin: 1rem;
   height: 3.5rem;
   width: 20rem;
-  background-color: #EADBC4;
   border: 1.8px solid black;
   border-radius: 1rem;
 }
@@ -153,6 +139,11 @@ button {
   width: 6rem;
   background-color: transparent;
   border: none;
+}
+button:hover,
+button:focus {
+  transform: scale(1.15);
+  transition: 0.3s;
 }
 
 button img {
@@ -176,10 +167,6 @@ main {
 }
 
 /* DISPLAY GIFS */
-.displayGifs {
-  background-color:#ABBEBA;
-}
-
 .gifPic {
   display: flex;
   flex-wrap: wrap;
@@ -191,10 +178,6 @@ main {
   flex-wrap: wrap;
   gap: 3rem 1rem;
   justify-content: center;
-  /* background-color: white;
-  padding-bottom: 2.5rem;
-  border-radius: 10px;
-  border: 1.5px solid black; */
 }
 
 .gifPic img {
@@ -208,39 +191,83 @@ li {
   padding: 10px;
   height: 300px;
   width: 300px;
-  /* background-color: white;
-  border-radius: 10px 10px 0 0; */
 }
-/* li p {
-  background-color: white;
-  width: 300px;
-  margin-left: -10px;
-  padding-bottom: 10px;
-  border-radius: 0px 0px 10px 10px;
-  
-} */
 
-.shuffleButton {
+
+/* RANDOM GIFS BUTTON & FAVES BUTTON */
+.randomAndSave {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.shuffleButton,
+.favesButton .navBar {
   background-color: #B3D5DF;
-  /* box-shadow: 0 0 2px 2px rgb(3, 153, 198); */
-  width: 350px;
-  border-radius: 1rem;
-  padding: 12px;
-  margin-top: 4.3rem;
   border: 1.5px solid black;
-
+  border-radius: 1rem;
+  margin-top: 3.5rem;
 }
+
+/* random shuffle */
+.shuffleButton {
+  width: 350px;
+  padding: 12px;
+}
+
 .shuffleButton:hover,
-.shuffleButton:focus {
+.shuffleButton:focus,
+.favesButton .navBar:hover,
+.favesButton .navBar:focus {
   box-shadow: 0 0 5px 5px #12a2df;
   transform: scale(1.1);
   transition: 0.3s;
 }
 
+/* view faves */
+.favesButton .navBar {
+  width: 250px;
+  padding-top: 0.4rem;
+}
+
+nav .favesP {
+  display: inline-block;
+  padding: 0px 8px 9px;
+  font-size: 1.25rem;
+}
+
+.randomAndSave .heartIcon {
+  font-size: 1.8rem;
+  margin-bottom: -2.6px;
+}
+
+/* THE BENCH PEOPLE */
 .watchingImg img {
   width: 100%;
   margin-top: 4rem;
   margin-bottom: -.23rem;
+}
+
+/* FAVOURITES SECTION */
+.viewFaves {
+  background-color: #B3D5DF;
+  border-top: 2px solid rgb(99, 97, 97);
+  padding: 5rem 0 3.5rem;
+  display: flex;
+}
+
+.viewSavedH3 {
+  padding-bottom: 2rem;
+}
+
+.viewFaves .favesP{
+  display: block;
+  padding-top: 1rem;
+}
+
+.viewFaves .heartIcon {
+  padding-top: 2.5rem;
 }
 
 /* FOOTER */
@@ -248,7 +275,6 @@ footer {
   border-top:  2px solid black;
 }
 footer p {
-  margin: 0;
   padding: 1rem;
   font-size: 1rem;
   font-weight: 600;

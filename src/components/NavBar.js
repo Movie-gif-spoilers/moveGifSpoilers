@@ -1,22 +1,37 @@
-// import house from '../assets/house-solid.svg';
-// import heart from "../assets/heart-solid.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const NavBar = () => {
+export const homeNavBar = () => {
 	return (
 		<section className="navBar">
-			<nav className="wrapper">
+			<nav className="navBar">
 				<a href="#header" className="home">
 				<FontAwesomeIcon icon="house" className="houseIcon" />
 					<p>Home</p>
-				</a>
-				<a href="#header" className="favs">
-				<FontAwesomeIcon icon="heart"  className="heartIcon"/>
-					<p> Favs </p>
 				</a>
 			</nav>
 		</section>
 	);
 };
 
-export default NavBar;
+
+
+const NavBar = () => {
+	return (
+			<nav className="navBar">
+				<a href="#header" className="favs">
+				<FontAwesomeIcon icon="heart"  className="heartIcon"/>
+				<p className="favesP"> View Favs </p>
+				</a>
+			</nav>
+	);
+};
+
+export default NavBar
+
+
+
+// how to add the home button 
+
+// import { homeNavBar }  from "./NavBar.js"
+// {homeNavBar()} 
+// { keywords.length === 0 ? null : homeNavBar()}
