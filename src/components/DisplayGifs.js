@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
+import { Link, Routes, Route } from 'react-router-dom';
 
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
@@ -33,6 +34,11 @@ const DisplayGifs = (props) => {
 			<button className="shuffleButton" onClick={handleRandomize}>
 				Click for new set of random gifs
 			</button>
+			<div className="savedGifs">
+				<button className="shuffleButton">
+					<Link to="/savedGifs">View My Saved Gifs!</Link>
+				</button>
+			</div>
 
 			<div className="watchingImg" />
 			<div className="watchingImg wrapper">
@@ -42,7 +48,6 @@ const DisplayGifs = (props) => {
 				/>
 			</div>
 
-			<div className="saveSelects"></div>
 		</section>
 	);
 };
