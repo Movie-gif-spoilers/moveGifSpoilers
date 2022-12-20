@@ -37,16 +37,13 @@ function Gif(props) {
 			{currentGifs.map((gif) => {
 				// console.log('gif being mapped', gif.id);
 				return (
-					<li
-						data-aos="flip-left"
-						key={gif.id}
-						onClick={() => {
-							props.handleGifClick(props.keyword);
-						}}
-					>
+					<li data-aos="flip-left" key={gif.id}>
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
-							alt=""
+							alt={props.keyword}
+							onClick={() => {
+								props.handleGifClick(props.keyword);
+							}}
 						/>
 						<p className="gifKeyword">{props.keyword}</p>
 
