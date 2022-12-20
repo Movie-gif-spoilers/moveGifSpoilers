@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { addToFirestoreDB } from '../firebase/firestore';
+import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
 AOS.init();
 
@@ -20,6 +20,10 @@ function Gif(props) {
 		addToFirestoreDB(keyword, movieTitle, gifID);
 	};
 
+	const handleDelete = (gifID) => {
+		deleteFromFirestoreDB(gifID);
+	};
+
 	return (
 		<>
 			{currentGifs.map((gif) => {
@@ -33,11 +37,12 @@ function Gif(props) {
 						<p>{props.keyword}</p>
 						<button
 							onClick={() =>
-								handleSave(props.keyword, movieTitle, gif.id)
+								handleSave(props.keyword, props.movieTitle, gif.id)
 							}
 						>
-							Save
+							' ' Save
 						</button>
+						<button onClick={() => handleDelete(gif.id)}>Delete</button>
 					</li>
 				);
 			})}

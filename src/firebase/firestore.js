@@ -1,14 +1,18 @@
-import { addDoc, collection, deleteDoc } from 'firebase/firestore';
+import { setDoc, doc, deleteDoc, collection } from 'firebase/firestore';
 import { firestoreDB } from './firebaseConfig';
 
-const collectionReference = `Saved Gifs`;
+const nameOfCollection = `Saved Gifs`;
 
-export const addToFirestoreDB = (keyword, movieTitle, gifID) => {
-	const data = {
+export const addToFirestoreDB = async (keyword, movieTitle, gifID) => {
+	const documentData = {
 		'Movie Title': movieTitle,
 		'Saved Gif IDs': gifID,
 		Keyword: keyword,
 	};
-	addDoc(collection(firestoreDB, collectionReference), data);
+	await setDoc(doc(firestoreDB, nameOfCollection, gifID), documentData);
 	console.log('added:', movieTitle, gifID);
+};
+
+export const deleteFromFirestoreDB = (gifID) => {
+	deleteDoc(doc(firestoreDB, nameOfCollection, gifID));
 };

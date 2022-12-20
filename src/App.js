@@ -39,7 +39,7 @@ function App() {
 					setMovieTitle={setMovieTitle}
 				/>
 				<h3>Here's all you need to know about: {movieTitle}</h3>
-				<DisplayGifs keywords={keywords} />
+				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
 			</main>
 			<Footer />
 		</div>
