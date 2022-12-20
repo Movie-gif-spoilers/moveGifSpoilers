@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import { Link, Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -37,15 +38,19 @@ function App() {
 				<Header />
 			</header>
 
-			<main>
-				<SearchBar
-					setId={setId}
-					apiKey={apiKey}
-					setMovieTitle={setMovieTitle}
-				/>
-				<h3>Here's all you need to know about: {movieTitle}</h3>
-				<DisplayGifs keywords={keywords} />
-			</main>
+      <Routes>
+        <main>
+          <SearchBar
+            setId={setId}
+            apiKey={apiKey}
+            setMovieTitle={setMovieTitle}
+          />
+          <h3>Here's all you need to know about: {movieTitle}</h3>
+          <DisplayGifs keywords={keywords} />
+          <Route path="/savedGifs" element={<DisplayGifs keywords={keywords} />} />
+        </main>
+      </Routes>
+
 			<Footer />
 		</div>
 	);
