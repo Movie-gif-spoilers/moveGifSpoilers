@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import  { Route, Routes } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
 
 function App() {
@@ -16,10 +17,12 @@ function App() {
 
 	const [id, setId] = useState('');
 
+	// state that holds movie title 
+	const [ movieTitle, setMovieTitle ] = useState('');
+
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
-	const [movieTitle, setMovieTitle] = useState('');
 
 	useEffect(() => {
 		if (id) {
@@ -28,11 +31,17 @@ function App() {
 		}
 	}, [id]);
 
+
+	const handleGifClick = (gifKeyword) => {
+		setKeywords([gifKeyword])
+	}
+
 	return (
 		<div className="App">
 			<header>
 				<Header />
 			</header>
+
 
 			<main>
 				<SearchBar
@@ -40,6 +49,7 @@ function App() {
 					apiKey={apiKey}
 					setMovieTitle={setMovieTitle}
 				/>
+
 
 
 				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
@@ -50,6 +60,7 @@ function App() {
 			</main>
 			<Footer />
 		</div>
+		
 	);
 }
 
