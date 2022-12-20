@@ -9,6 +9,7 @@ import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
 import { Route, Routes } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 	// API Key
@@ -58,12 +59,12 @@ function App() {
 					</h3>
 				)}
 
-				<DisplayGifs
-					keywords={keywords}
-					movieTitle={movieTitle}
-					handleGifClick={handleGifClick}
-				/>
-				<DisplaySaved />
+				<DisplayGifs keywords={keywords} movieTitle={movieTitle} handleGifClick={handleGifClick} />
+
+				<Routes>
+					<Route path="/displaySaved" element={<DisplaySaved />} />
+				</Routes>
+
 			</main>
 			<Footer />
 		</div>
