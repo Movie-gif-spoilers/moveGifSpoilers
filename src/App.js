@@ -44,8 +44,6 @@ function App() {
 
 				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
 
-{/* 
-
 				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
 				<DisplaySaved />
 
