@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import DisplaySaved from './components/DisplaySaved';
 
 function App() {
 	// API Key
@@ -39,7 +40,8 @@ function App() {
 					setMovieTitle={setMovieTitle}
 				/>
 				<h3>Here's all you need to know about: {movieTitle}</h3>
-				<DisplayGifs keywords={keywords} />
+				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
+				<DisplaySaved />
 			</main>
 			<Footer />
 		</div>

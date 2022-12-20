@@ -26,7 +26,9 @@ const DisplayGifs = (props) => {
 			<div className="gifPic wrapper">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
-						return <Gif keyword={keyword} />;
+						return (
+							<Gif keyword={keyword} movieTitle={props.movieTitle} />
+						);
 					})}
 				</ul>
 			</div>

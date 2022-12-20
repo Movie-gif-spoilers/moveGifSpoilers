@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
 AOS.init();
 
@@ -14,7 +15,10 @@ function Gif(props) {
 		// eslint-disable-next-line
 	}, [props.keyword]);
 
-	console.log('after setting current gifs', currentGifs);
+	const handleSave = (keyword, movieTitle, gifID) => {
+		console.log('handleSave Fired');
+		addToFirestoreDB(keyword, movieTitle, gifID);
+	};
 
 	return (
 		<>
@@ -24,9 +28,18 @@ function Gif(props) {
 					<li data-aos="flip-left" key={gif.id}>
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
-							alt=""
+							alt={props.keyword}
 						/>
 						<p>{props.keyword}</p>
+						<div className="saveDelete">
+							<button
+								onClick={() =>
+									handleSave(props.keyword, props.movieTitle, gif.id)
+								}
+							>
+								Save
+							</button>
+						</div>
 					</li>
 				);
 			})}
