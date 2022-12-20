@@ -7,7 +7,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
-import  { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
 
 function App() {
@@ -17,31 +17,28 @@ function App() {
 
 	const [id, setId] = useState('');
 
-	// state that holds movie title 
-	const [ movieTitle, setMovieTitle ] = useState('');
+	// state that holds movie title
+	const [movieTitle, setMovieTitle] = useState('');
 
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
 
-
 	useEffect(() => {
 		if (id) {
 			getKeywords(apiKey, id, setKeywords);
-			console.log("check id", id)
+			console.log('check id', id);
 		}
 	}, [id]);
 
-
 	const handleGifClick = (gifKeyword) => {
-		setKeywords([gifKeyword])
-	}
+		setKeywords([gifKeyword]);
+	};
 
 	return (
 		<div className="App">
 			<header>
 				<Header />
 			</header>
-
 
 			<main>
 				<SearchBar
@@ -50,17 +47,26 @@ function App() {
 					setMovieTitle={setMovieTitle}
 				/>
 
+				{keywords.length === 0 ? (
+					<h3 className="welcomeH3 wrapper">
+						Welcome, your movie will begin shortly
+					</h3>
+				) : (
+					<h3 className="gifsH3 wrapper">
+						<span className="paragraphBlock">Now playing: </span>
+						{movieTitle}
+					</h3>
+				)}
 
-
-				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
-
-				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
+				<DisplayGifs
+					keywords={keywords}
+					movieTitle={movieTitle}
+					handleGifClick={handleGifClick}
+				/>
 				<DisplaySaved />
-
 			</main>
 			<Footer />
 		</div>
-		
 	);
 }
 
