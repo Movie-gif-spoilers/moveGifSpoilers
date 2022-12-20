@@ -269,6 +269,10 @@ nav .favesP {
 .viewFaves .heartIcon {
   padding-top: 2.5rem;
 }
+.saveDelete {
+  display: flex;
+  gap: 20px;
+}
 
 /* FOOTER */
 footer {
