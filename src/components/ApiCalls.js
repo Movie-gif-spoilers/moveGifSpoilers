@@ -88,9 +88,10 @@ export const getGif = async(props, setCurrentGifs) => {
 			params: {
 				api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
 				q: props.keyword,
-				limit: 1
+				limit: props.keywordLength === 1 ? 6 : 1
       }
 		}) 
+    // console.log('api', props.keywordLength);
     setCurrentGifs(res.data.data)
   } catch (error) {
     console.log("checking errors", error)

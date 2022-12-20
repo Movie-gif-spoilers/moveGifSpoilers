@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import { Route, Routes } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
 import { Routes, Route } from 'react-router-dom';
 
@@ -17,10 +18,11 @@ function App() {
 
 	const [id, setId] = useState('');
 
+	// state that holds movie title
+	const [movieTitle, setMovieTitle] = useState('');
+
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
-
-	const [movieTitle, setMovieTitle] = useState('');
 
 	useEffect(() => {
 		if (id) {
@@ -28,6 +30,10 @@ function App() {
 			console.log('check id', id);
 		}
 	}, [id]);
+
+	const handleGifClick = (gifKeyword) => {
+		setKeywords([gifKeyword]);
+	};
 
 	return (
 		<div className="App">
@@ -53,11 +59,12 @@ function App() {
 					</h3>
 				)}
 
-				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
+				<DisplayGifs keywords={keywords} movieTitle={movieTitle} handleGifClick={handleGifClick} />
 
 				<Routes>
 					<Route path="/displaySaved" element={<DisplaySaved />} />
 				</Routes>
+
 			</main>
 			<Footer />
 		</div>
