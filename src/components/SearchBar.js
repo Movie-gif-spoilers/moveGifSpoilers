@@ -1,6 +1,7 @@
 import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import { getMovieId } from './ApiCalls';
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,6 +25,8 @@ const SearchBar = (props) => {
 		e.preventDefault();
 		setSavedInput(input);
 	};
+
+
 
 	return (
 		<section className="searchBar">
@@ -56,7 +59,9 @@ const SearchBar = (props) => {
 				/>
 
 				<button type="submit">
+
 						<img src={play} alt="play" />{' '}
+
 				</button>
 			</form>
 			

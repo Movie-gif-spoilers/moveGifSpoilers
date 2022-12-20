@@ -130,6 +130,13 @@ input {
   border-radius: 1rem;
 }
 
+.movieTitle {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .formFlex {
   display: flex;
   justify-content: center;
@@ -249,6 +256,7 @@ nav .favesP {
   margin-bottom: -.23rem;
 }
 
+
 /* FAVOURITES SECTION */
 .viewFaves {
   background-color: #B3D5DF;
@@ -269,6 +277,22 @@ nav .favesP {
 .viewFaves .heartIcon {
   padding-top: 2.5rem;
 }
+
+.giphyClick {
+  width: 40%;
+}
+
+.giphyIcon {
+  margin-left: -190px;
+}
+
+.gifKeyword {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
 .saveDelete {
   display: flex;
   gap: 20px;

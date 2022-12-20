@@ -8,6 +8,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import { Route, Routes } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
 
 
@@ -21,16 +22,22 @@ function App() {
 	// state that holds the movie's title from first api call
 const [movieTitle, setMovieTitle] = useState('');
 
+	// state that holds movie title
+	const [movieTitle, setMovieTitle] = useState('');
+
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
-
 
 	useEffect(() => {
 		if (id) {
 			getKeywords(apiKey, id, setKeywords);
-			console.log("check id", id)
+			console.log('check id', id);
 		}
 	}, [id]);
+
+	const handleGifClick = (gifKeyword) => {
+		setKeywords([gifKeyword]);
+	};
 
 	return (
 		<div className="App">
@@ -45,13 +52,33 @@ const [movieTitle, setMovieTitle] = useState('');
 					setMovieTitle={setMovieTitle}
 				/>
 
+				{keywords.length === 0 ? (
+					<h3 className="welcomeH3 wrapper">
+						Welcome, your movie will begin shortly
+					</h3>
+				) : (
+					<h3 className="gifsH3 wrapper">
+						<span className="paragraphBlock">Now playing: </span>
+						{movieTitle}
+					</h3>
+				)}
 
-				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
+				<Routes>
+					<Route
+						path="/"
+						element={
+							<DisplayGifs
+								keywords={keywords}
+								movieTitle={movieTitle}
+								handleGifClick={handleGifClick}
+							/>
+						}
+					/>
+					<Route path="/displaySaved" element={<DisplaySaved />} />
+				</Routes>
 
-				<DisplayGifs keywords={keywords}  movieTitle={movieTitle}/>
-
-
-			<section className="viewFaves">
+// check here
+<section className="viewFaves">
 				<div className="favesContainer wrapper">
 					<h3 className="viewSavedH3">View previously saved movie gifs</h3>
 
@@ -59,9 +86,6 @@ const [movieTitle, setMovieTitle] = useState('');
 				<NavBar />
 				</div>
 			</section>
-
-				<DisplaySaved />
-
 			</main>
 			<Footer />
 			<p>hi</p>
