@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
+import { addToFirestoreDB } from '../firebase/firestore';
 AOS.init();
 
 function Gif(props) {
@@ -22,19 +23,29 @@ function Gif(props) {
 		});
 	}, [props.keyword]);
 
-	console.log('after setting current gifs', currentGifs);
+	const handleSave = (keyword, movieTitle, gifID) => {
+		console.log('handleSave Fired');
+		addToFirestoreDB(keyword, movieTitle, gifID);
+	};
 
 	return (
 		<>
 			{currentGifs.map((gif) => {
 				console.log('gif being mapped', gif.id);
 				return (
-					<li data-aos="flip-left">
+					<li data-aos="flip-left" key={gif.id}>
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
-							alt=""
+							alt={props.keyword}
 						/>
 						<p>{props.keyword}</p>
+						<button
+							onClick={() =>
+								handleSave(props.keyword, movieTitle, gif.id)
+							}
+						>
+							Save
+						</button>
 					</li>
 				);
 			})}

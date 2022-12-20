@@ -3,10 +3,12 @@ import { firestoreDB } from './firebaseConfig';
 
 const collectionReference = `Saved Gifs`;
 
-export const addToFirestoreDB = (movieTitle, savedGifs) => {
+export const addToFirestoreDB = (keyword, movieTitle, gifID) => {
 	const data = {
 		'Movie Title': movieTitle,
-		'Saved Gif IDs': [...savedGifs],
+		'Saved Gif IDs': gifID,
+		Keyword: keyword,
 	};
 	addDoc(collection(firestoreDB, collectionReference), data);
+	console.log('added:', movieTitle, gifID);
 };
