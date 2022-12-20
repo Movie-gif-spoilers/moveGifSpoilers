@@ -7,6 +7,8 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import  { Route, Routes } from 'react-router-dom';
+
 
 function App() {
 	// API Key
@@ -29,12 +31,16 @@ function App() {
 	}, [id]);
 
 
+	const handleGifClick = (gifKeyword) => {
+		setKeywords([gifKeyword])
+	}
 
 	return (
 		<div className="App">
 			<header>
 				<Header />
 			</header>
+
 
 			<main>
 				<SearchBar
@@ -43,7 +49,16 @@ function App() {
 					setMovieTitle={setMovieTitle}
 				/>
 				<h3>Here's all you need to know about: {movieTitle}</h3>
-				<DisplayGifs keywords={keywords} />
+				
+			{/* <Routes> */}
+
+{/* 
+			<Route path="/GiphyKeywords/=:keyword" element={<DisplayGifs keywords={keywords} handleGifClick={handleGifClick}/>} /> */}
+
+			<DisplayGifs keywords={keywords} handleGifClick={handleGifClick}/>
+
+			{/* </Routes> */}
+
 			</main>
 			<Footer />
 		</div>

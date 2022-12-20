@@ -1,6 +1,7 @@
 import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import { getMovieId } from './ApiCalls';
+import { Link } from 'react-router-dom';
 
 const SearchBar = (props) => {
 	// state that holds the user's form input
@@ -54,9 +55,9 @@ const SearchBar = (props) => {
 				/>
 
 				<button type="submit">
-					<a href="#displayGifs">
+					<Link to={`/GiphyKeywords/`}>
 						<img src={play} alt="play" />{' '}
-					</a>
+					</Link>
 				</button>
 			</form>
 		</section>

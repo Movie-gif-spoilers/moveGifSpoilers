@@ -13,6 +13,8 @@ function Gif(props) {
 
 	// console.log('I just rendered with these keywords', props.keyword);
 
+	const { keyword:keyword } = useParams()
+
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
 		// eslint-disable-next-line
@@ -20,9 +22,9 @@ function Gif(props) {
 
 	// console.log('after setting current gifs', currentGifs);
 	function openGiphyByMethod (e) {
-		console.log(e);
+		// console.log(e);
 		// alert("testing")
-		window.open(`https://giphy.com/search/${props.keyword}`)
+		window.open(`https://giphy.com/search/${keyword}`)
 	}
 
 	return (
@@ -30,15 +32,14 @@ function Gif(props) {
 			{currentGifs.map((gif) => {
 				// console.log('gif being mapped', gif.id);
 				return (
-					<li data-aos="flip-left" key={gif.id}>
-						<Link to={`/GiphyKeywords/${props.keyword}`}>
-						<Outlet/>
+					<li data-aos="flip-left" key={gif.id} onClick={() => {props.handleGifClick(props.keyword)}}> 
+						
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt=""
 							/>
 						<p className='gifKeyword'>{props.keyword}</p>
-						</Link>
+						
 
 						<button className='giphyClick' onClick={openGiphyByMethod}>
 							<img className="giphyIcon" src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg" alt="" />

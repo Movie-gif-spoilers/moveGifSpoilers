@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 
@@ -6,26 +7,33 @@ const DisplayGifs = (props) => {
 	// eslint-disable-next-line
 	const [shuffle, setShuffle] = useState([]);
 
+
+	const { keyword: newKeyword } = useParams();
+
+	console.log('new keyword', newKeyword)
+
 	function getMultipleRandom(arr, num) {
 		const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
 		return shuffled.slice(0, num);
 	}
 
-	function handleRandomize() {
-		setShuffle(getMultipleRandom(props.keywords, 5));
+	function handleRandomize(e) {
+		setShuffle(getMultipleRandom(props.keywords, 10));
+		console.log(e);
 	}
 
 	const keywords = getMultipleRandom(props.keywords, 5);
 
-	// console.log('keywords', keywords);
+	const keywordLength = keywords.length;
+
 
 	return (
 		<section className="displayGifs gifFlex" id="displayGifs">
 			<div className="gifPic wrapper">
 				<ul className="gifFlex gifArea">
 					{keywords.map((keyword) => {
-						return <Gif keyword={keyword} />;
+						return <Gif keyword={keyword} handleGifClick={props.handleGifClick} keywordLength={keywordLength} />;
 					})}
 				</ul>
 			</div>
