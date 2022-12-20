@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
 import DisplaySaved from './components/DisplaySaved';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
 	// API Key
@@ -24,7 +25,7 @@ function App() {
 	useEffect(() => {
 		if (id) {
 			getKeywords(apiKey, id, setKeywords);
-			console.log("check id", id)
+			console.log('check id', id);
 		}
 	}, [id]);
 
@@ -41,12 +42,22 @@ function App() {
 					setMovieTitle={setMovieTitle}
 				/>
 
-
-				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
+				{keywords.length === 0 ? (
+					<h3 className="welcomeH3 wrapper">
+						Welcome, your movie will begin shortly
+					</h3>
+				) : (
+					<h3 className="gifsH3 wrapper">
+						<span className="paragraphBlock">Now playing: </span>
+						{movieTitle}
+					</h3>
+				)}
 
 				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
-				<DisplaySaved />
 
+				<Routes>
+					<Route path="/displaySaved" element={<DisplaySaved />} />
+				</Routes>
 			</main>
 			<Footer />
 		</div>
