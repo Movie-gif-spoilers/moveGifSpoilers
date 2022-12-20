@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const SearchBar = (props) => {
 	// state that holds the user's form input
 	const [input, setInput] = useState('');
-	const [savedInput, setSavedInput] = useState('movies');
+	const [savedInput, setSavedInput] = useState('');
 
 	useEffect(() => {
 		if (props.id || savedInput) {
@@ -28,25 +28,27 @@ const SearchBar = (props) => {
 
 	return (
 		<section className="searchBar">
-			<div>
+			<div className="wrapper">
+			<h3 class="searchBarH3">Summarize any movie with gifs</h3>
 				<p>
 					Life is too short to spend HOURS watching films! There are simply
 					TOO many!
 				</p>
 				<p>
-					Search a movie title to find out all you need to know about the
-					plot... in gif form!
+					Search a movie title to find out the summary... in gif form!
 				</p>
 			</div>
+
 			<form
 				action="submit"
 				onSubmit={handleSubmit}
 				className="formFlex wrapper"
 			>
-				<label htmlFor="userMovieChoice">
+				<label htmlFor="userMovieChoice" className="sr-only">
 					Enter a movie and press play
 				</label>
 				<input
+					placeholder="Enter a movie and press play"
 					onChange={userChoice}
 					type="text"
 					id="userMovieChoice"
@@ -55,11 +57,15 @@ const SearchBar = (props) => {
 				/>
 
 				<button type="submit">
-					<Link to={`/GiphyKeywords/`}>
+
+			
 						<img src={play} alt="play" />{' '}
-					</Link>
+
+
 				</button>
 			</form>
+
+
 		</section>
 	);
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
 import { Link, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -20,12 +21,19 @@ function Gif(props) {
 		// eslint-disable-next-line
 	}, [props.keyword]);
 
+
 	// console.log('after setting current gifs', currentGifs);
 	function openGiphyByMethod (e) {
 		// console.log(e);
 		// alert("testing")
 		window.open(`https://giphy.com/search/${keyword}`)
 	}
+
+	const handleSave = (keyword, movieTitle, gifID) => {
+		console.log('handleSave Fired');
+		addToFirestoreDB(keyword, movieTitle, gifID);
+	};
+
 
 	return (
 		<>
@@ -36,6 +44,7 @@ function Gif(props) {
 						
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
+
 							alt=""
 							/>
 						<p className='gifKeyword'>{props.keyword}</p>
@@ -44,6 +53,20 @@ function Gif(props) {
 						<button className='giphyClick' onClick={openGiphyByMethod}>
 							<img className="giphyIcon" src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg" alt="" />
 						</button>
+
+							alt={props.keyword}
+						/>
+						<p class="keywordsP">{props.keyword}</p>
+						<div className="saveDelete">
+							<button
+								onClick={() =>
+									handleSave(props.keyword, props.movieTitle, gif.id)
+								}
+							>
+								Save
+							</button>
+						</div>
+
 					</li>
 
 
