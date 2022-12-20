@@ -2,6 +2,8 @@ import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { firestoreDB } from '../firebase/firebaseConfig';
 import { useEffect, useState } from 'react';
 import SavedGif from './SavedGif';
+import { HomeNavBar } from './NavBar.js';
+import { Link } from 'react-router-dom';
 
 const DisplaySaved = () => {
 	const [savedGifs, setSavedGifs] = useState([]);
@@ -34,6 +36,7 @@ const DisplaySaved = () => {
 	return (
 		<ul>
 			Saved Gifs
+			<HomeNavBar />
 			{savedGifs.map((gif) => {
 				console.log('gif', gif);
 				return (

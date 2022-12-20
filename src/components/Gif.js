@@ -45,7 +45,6 @@ function Gif(props) {
 								props.handleGifClick(props.keyword);
 							}}
 						/>
-						<p className="gifKeyword">{props.keyword}</p>
 
 						<button className="giphyClick" onClick={openGiphyByMethod}>
 							<img
