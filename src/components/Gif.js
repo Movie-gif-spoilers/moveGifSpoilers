@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { getGif } from '../components/ApiCalls.js';
+
+
 AOS.init();
 
 function Gif(props) {
@@ -21,24 +23,24 @@ function Gif(props) {
 		window.open(`https://giphy.com/search/${props.keyword}`)
 	}
 
-	console.log(props);
-
-
 	return (
 		<>
 			{currentGifs.map((gif) => {
 				// console.log('gif being mapped', gif.id);
 				return (
 					<li data-aos="flip-left" key={gif.id}>
+
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt=""
 						/>
-						<p className='keywordParagraph'>{props.keyword}</p>
+
 						<button className='giphyClick' onClick={openGiphyByMethod}>
 							<img className="giphyIcon" src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg" alt="" />
 						</button>
 					</li>
+
+
 				);
 			})}
 		</>
