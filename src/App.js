@@ -59,6 +59,7 @@ const [movieTitle, setMovieTitle] = useState('');
 			</section>
 			</main>
 			<Footer />
+			<p>hi</p>
 		</div>
 	);
 }
