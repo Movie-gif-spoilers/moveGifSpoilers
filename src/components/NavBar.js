@@ -6,15 +6,13 @@ const NavBar = () => {
 	return (
 		<section className="navBar">
 			<nav className="wrapper">
-				<a href="#header">
-					<p className="houseIcon">
-						<FontAwesomeIcon icon="house" />
-					</p>
+				<a href="#header" className="home">
+				<FontAwesomeIcon icon="house" className="houseIcon" />
+					<p>Home</p>
 				</a>
-				<a href="#header">
-					<p className="heartIcon">
-						<FontAwesomeIcon icon="heart" />
-					</p>
+				<a href="#header" className="favs">
+				<FontAwesomeIcon icon="heart"  className="heartIcon"/>
+					<p> Favs </p>
 				</a>
 			</nav>
 		</section>
