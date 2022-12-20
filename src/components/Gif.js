@@ -30,7 +30,7 @@ function Gif(props) {
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt={props.keyword}
 						/>
-						<p>{props.keyword}</p>
+						<p class="keywordsP">{props.keyword}</p>
 						<div className="saveDelete">
 							<button
 								onClick={() =>

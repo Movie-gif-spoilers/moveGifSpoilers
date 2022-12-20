@@ -14,7 +14,7 @@ function App() {
 	const apiKey = '66a65cc7632ce390e4eb0fe1e74602e1';
 	// state that holds the movie's id from api
 
-	const [id, setId] = useState('474395');
+	const [id, setId] = useState('');
 
 	// State to hold keywords returned from second api call
 	const [keywords, setKeywords] = useState([]);
@@ -24,6 +24,7 @@ function App() {
 	useEffect(() => {
 		if (id) {
 			getKeywords(apiKey, id, setKeywords);
+			console.log("check id", id)
 		}
 	}, [id]);
 
@@ -39,9 +40,15 @@ function App() {
 					apiKey={apiKey}
 					setMovieTitle={setMovieTitle}
 				/>
-				<h3>Here's all you need to know about: {movieTitle}</h3>
+
+
+				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
+
+{/* 
+
 				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
 				<DisplaySaved />
+
 			</main>
 			<Footer />
 		</div>
