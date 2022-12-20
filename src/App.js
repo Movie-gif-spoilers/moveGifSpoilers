@@ -7,6 +7,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+import DisplaySaved from './components/DisplaySaved';
 
 function App() {
 	// API Key
@@ -40,11 +41,14 @@ function App() {
 					setMovieTitle={setMovieTitle}
 				/>
 
+
 				{ keywords.length === 0 ? <h3 className="welcomeH3 wrapper">Welcome, your movie will begin shortly</h3> : <h3 className="gifsH3 wrapper"><span className="paragraphBlock">Now playing: </span>{movieTitle}</h3>}
 
 {/* 
-				<h3 className="gifsH3 wrapper"><span className="paragraphBlock">All you need to know about: </span>{movieTitle}</h3> */}
-				<DisplayGifs keywords={keywords} />
+
+				<DisplayGifs keywords={keywords} movieTitle={movieTitle} />
+				<DisplaySaved />
+
 			</main>
 			<Footer />
 		</div>

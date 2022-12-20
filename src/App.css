@@ -243,6 +243,11 @@ li {
   margin-bottom: -.23rem;
 }
 
+.saveDelete {
+  display: flex;
+  gap: 20px;
+}
+
 /* FOOTER */
 footer {
   border-top:  2px solid black;
