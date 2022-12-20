@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
+import NavBar from "./NavBar.js";
+// import {homeNavBar} from "./NavBar.js";
 
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
@@ -34,7 +36,7 @@ const DisplayGifs = (props) => {
 	return (
 		<section className="displayGifs gifFlex" id="displayGifs">
 			<div className="gifPic wrapper">
-				<ul className="gifFlex gifArea">
+				<ul className="gifArea">
 					{keywords.map((keyword) => {
 						return <Gif keyword={keyword} handleGifClick={props.handleGifClick} keywordLength={keywordLength} movieTitle={props.movieTitle} />;
 
@@ -42,10 +44,17 @@ const DisplayGifs = (props) => {
 				</ul>
 			</div>
 
-			{ keywords.length === 0 ? null : 	<button className="shuffleButton" onClick={handleRandomize}>
-				Click for new set of random gifs
-			</button>}
+			<div className="randomAndSave">
+				<div>
+				{ keywords.length === 0 ? null : 	<button className="shuffleButton" onClick={handleRandomize}>
+					Click for new set of random gifs
+				</button> } 
+				</div>
 
+				<div className='favesButton'>
+				{ keywords.length === 0 ? null : NavBar()}
+				</div>
+			</div>
 
 
 			<div className="watchingImg" />
