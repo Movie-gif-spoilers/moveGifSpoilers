@@ -16,8 +16,8 @@ const DisplayGifs = (props) => {
 		setShuffle(getMultipleRandom(props.keywords, 5));
 	}
 
-	const keywords = getMultipleRandom(props.keywords, 5);
-	console.log('randoms', getMultipleRandom(props.keywords, 5));
+	const keywords = getMultipleRandom(props.keywords, 4);
+	console.log('randoms', getMultipleRandom(props.keywords, 4));
 
 	console.log('keywords', keywords);
 
@@ -31,9 +31,11 @@ const DisplayGifs = (props) => {
 				</ul>
 			</div>
 
-			<button className="shuffleButton" onClick={handleRandomize}>
+			{ keywords.length === 0 ? null : 	<button className="shuffleButton" onClick={handleRandomize}>
 				Click for new set of random gifs
-			</button>
+			</button>}
+
+
 
 			<div className="watchingImg" />
 			<div className="watchingImg wrapper">

@@ -26,7 +26,7 @@ function Gif(props) {
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt=""
 						/>
-						<p>{props.keyword}</p>
+						<p class="keywordsP">{props.keyword}</p>
 					</li>
 				);
 			})}
