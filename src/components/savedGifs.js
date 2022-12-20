@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
 AOS.init();
 
@@ -15,34 +14,34 @@ function Gif(props) {
 		// eslint-disable-next-line
 	}, [props.keyword]);
 
-	const handleSave = (keyword, movieTitle, gifID) => {
-		console.log('handleSave Fired');
-		addToFirestoreDB(keyword, movieTitle, gifID);
-	};
+	// console.log('after setting current gifs', currentGifs);
+	function openGiphyByMethod (e) {
+		console.log(e);
+		// alert("testing")
+		window.open(`https://giphy.com/search/${props.keyword}`)
+	}
+
+	console.log(props);
+
 
 	return (
 		<>
-			{currentGifs.map((gif) => {
+        THESE ARE MY SAVED GIFS!
+			{/* {currentGifs.map((gif) => {
 				// console.log('gif being mapped', gif.id);
 				return (
 					<li data-aos="flip-left" key={gif.id}>
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
-							alt={props.keyword}
+							alt=""
 						/>
-						<p class="keywordsP">{props.keyword}</p>
-						<div className="saveDelete">
-							<button
-								onClick={() =>
-									handleSave(props.keyword, props.movieTitle, gif.id)
-								}
-							>
-								Save
-							</button>
-						</div>
+						<p className='keywordParagraph'>{props.keyword}</p>
+						<button className='giphyClick' onClick={openGiphyByMethod}>
+							<img className="giphyIcon" src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg" alt="" />
+						</button>
 					</li>
 				);
-			})}
+			})} */}
 		</>
 	);
 }

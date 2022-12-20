@@ -23,6 +23,8 @@ const SearchBar = (props) => {
 		setSavedInput(input);
 	};
 
+
+
 	return (
 		<section className="searchBar">
 			<div className="wrapper">

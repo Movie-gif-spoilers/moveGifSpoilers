@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
+import { Link, Routes, Route } from 'react-router-dom';
 
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
@@ -19,7 +20,7 @@ const DisplayGifs = (props) => {
 	const keywords = getMultipleRandom(props.keywords, 4);
 	console.log('randoms', getMultipleRandom(props.keywords, 4));
 
-	console.log('keywords', keywords);
+	// console.log('keywords', keywords);
 
 	return (
 		<section className="displayGifs gifFlex" id="displayGifs">
@@ -47,7 +48,6 @@ const DisplayGifs = (props) => {
 				/>
 			</div>
 
-			<div className="saveSelects"></div>
 		</section>
 	);
 };

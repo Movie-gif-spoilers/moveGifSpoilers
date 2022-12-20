@@ -144,6 +144,13 @@ input {
   border-radius: 1rem;
 }
 
+.movieTitle {
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
 .formFlex {
   display: flex;
   justify-content: center;
@@ -246,6 +253,21 @@ li {
 .saveDelete {
   display: flex;
   gap: 20px;
+}
+
+.giphyClick {
+  width: 40%;
+}
+
+.giphyIcon {
+  margin-left: -190px;
+}
+
+.keywordParagraph {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 /* FOOTER */
