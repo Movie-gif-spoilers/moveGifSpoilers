@@ -39,8 +39,9 @@ const DisplaySaved = () => {
 				return (
 					<SavedGif
 						keyword={gif['Keyword']}
-						gifID={gif['Saved Gif IDs']}
+						gifID={gif['Gif ID']}
 						firestoreID={gif['firestoreID']}
+						movieTitle={gif['Movie Title']}
 					/>
 				);
 			})}

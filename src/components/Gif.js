@@ -20,10 +20,6 @@ function Gif(props) {
 		addToFirestoreDB(keyword, movieTitle, gifID);
 	};
 
-	const handleDelete = (gifID) => {
-		deleteFromFirestoreDB(gifID);
-	};
-
 	return (
 		<>
 			{currentGifs.map((gif) => {
@@ -42,9 +38,6 @@ function Gif(props) {
 								}
 							>
 								Save
-							</button>
-							<button onClick={() => handleDelete(gif.id)}>
-								Delete
 							</button>
 						</div>
 					</li>

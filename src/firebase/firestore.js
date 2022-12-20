@@ -1,4 +1,4 @@
-import { setDoc, doc, deleteDoc, collection } from 'firebase/firestore';
+import { setDoc, doc, deleteDoc } from 'firebase/firestore';
 import { firestoreDB } from './firebaseConfig';
 
 const nameOfCollection = `Saved Gifs`;

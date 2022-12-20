@@ -12,6 +12,7 @@ const SavedGif = (props) => {
 				alt={props.keyword}
 			/>
 			<p>{props.keyword}</p>
+			<p>{props.movieTitle}</p>
 			<div className="saveDelete">
 				<button onClick={() => handleDelete(props.firestoreID)}>
 					Delete
