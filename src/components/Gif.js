@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { addToFirestoreDB } from '../firebase/firestore';
+import { getGif } from '../components/ApiCalls.js';
 AOS.init();
 
 function Gif(props) {
@@ -11,16 +11,8 @@ function Gif(props) {
 	console.log('I just rendered with these keywords', props.keyword);
 
 	useEffect(() => {
-		axios({
-			url: `https://api.giphy.com/v1/gifs/search`,
-			params: {
-				api_key: `NFjbXVR8Fnr6sKnvC2hgL2etOmY2z7hO`,
-				q: props.keyword,
-				limit: 1,
-			},
-		}).then((res) => {
-			setCurrentGifs(res.data.data);
-		});
+		getGif(props, setCurrentGifs);
+		// eslint-disable-next-line
 	}, [props.keyword]);
 
 	const handleSave = (keyword, movieTitle, gifID) => {
