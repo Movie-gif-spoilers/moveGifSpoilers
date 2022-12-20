@@ -35,14 +35,18 @@ function Gif(props) {
 							alt={props.keyword}
 						/>
 						<p>{props.keyword}</p>
-						<button
-							onClick={() =>
-								handleSave(props.keyword, props.movieTitle, gif.id)
-							}
-						>
-							' ' Save
-						</button>
-						<button onClick={() => handleDelete(gif.id)}>Delete</button>
+						<div className="saveDelete">
+							<button
+								onClick={() =>
+									handleSave(props.keyword, props.movieTitle, gif.id)
+								}
+							>
+								Save
+							</button>
+							<button onClick={() => handleDelete(gif.id)}>
+								Delete
+							</button>
+						</div>
 					</li>
 				);
 			})}
