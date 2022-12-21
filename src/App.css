@@ -397,6 +397,12 @@ footer p {
 
 
 /* MEDIA QUERIES */
+@media (max-width: 1301px) {
+  .savedGifPic {
+    width: 50%;
+  }
+}
+
 @media (max-width: 1100px) {
   header {
     background-position: 0 100%;
@@ -409,6 +415,17 @@ footer p {
   header {
     background-position: -130px 100%;
     background-size: 120%;
+  }
+}
+
+@media (max-width: 701px) {
+
+  .savedGifsList.wrapper {
+    justify-content: center;
+  }
+
+  .savedGifPic {
+    width: 60%;
   }
 }
 
@@ -439,13 +456,17 @@ footer p {
   h2 {
     font-size: 2.4rem;
   }
+
   h3 {
     font-size: 1.8rem;
   }
+
   .gifsH3 {
     font-size: 1.8rem;
   }
-  p, .saveDelete {
+
+  p,
+  .saveDelete {
     font-size: 1.2rem;
   }
 
@@ -475,7 +496,7 @@ footer p {
   .watchingImg img {
     margin-top: 0;
   }
-  
+
   .randomAndSave {
     padding-bottom: 2rem;
   }
@@ -484,6 +505,13 @@ footer p {
     font-size: 2.5rem;
   }
 
+}
+
+@media (max-width: 501px) {
+
+  .savedGifPic {
+    width: 80%;
+  }
 }
 
 
@@ -497,15 +525,17 @@ footer p {
   h1 {
     font-size: 3rem;
   }
+
   h2 {
     font-size: 2rem;
   }
-  
+
 
   header {
     background-position: 100% 100%;
     background-size: 150%;
   }
+
   .header h1 {
     padding-top: 30vh;
   }
@@ -524,11 +554,15 @@ footer p {
     font-size: 1.8rem;
   }
 
-  h3, .gifsH3 {
+  h3,
+  .gifsH3 {
     font-size: 1.6rem;
   }
 
-  p, .saveDelete, .shuffleButton, .favesButton .favesP  {
+  p,
+  .saveDelete,
+  .shuffleButton,
+  .favesButton .favesP {
     font-size: 1.1rem;
   }
 
@@ -537,6 +571,7 @@ footer p {
     padding-top: 0;
 
   }
+
   .randomAndSave .heartIcon {
     font-size: 1.5rem;
   }
@@ -544,7 +579,7 @@ footer p {
   input {
     font-size: 1rem;
   }
-  
+
   .searchBar {
     padding-top: 3.5rem;
   }
@@ -563,11 +598,11 @@ footer p {
     height: 250px;
   }
 
-.giphyOrSaveOptions,
-.keywordsP  {
-  width: 250px;
-  margin-left: -10px;
-}
+  .giphyOrSaveOptions,
+  .keywordsP {
+    width: 250px;
+    margin-left: -10px;
+  }
 
   img.giphyIcon {
     padding: 0;
@@ -597,6 +632,13 @@ footer p {
   }
 }
 
+@media (max-width: 376px) {
+
+  .savedGifPic {
+    width: 100%;
+  }
+}
+
 @media (max-width: 360px) {
   header {
     background-size: 190%;
@@ -609,11 +651,16 @@ footer p {
   h1 {
     font-size: 2.5rem;
   }
+
   h2 {
     font-size: 1.6rem;
   }
 
-  p, .saveDelete, .shuffleButton, .favesButton .favesP, input {
+  p,
+  .saveDelete,
+  .shuffleButton,
+  .favesButton .favesP,
+  input {
     font-size: 0.9rem;
   }
 
@@ -636,7 +683,7 @@ footer p {
     width: 230px;
     padding: 12px;
   }
-  
+
   .favesButton .navBar {
     width: 230px;
     padding-top: 0.35rem;
@@ -651,6 +698,7 @@ footer p {
   .viewSavedH3 {
     padding-bottom: 1rem;
   }
+
   .viewFaves .heartIcon {
     font-size: 1.9rem;
     padding-top: 1.5rem;
@@ -661,3 +709,10 @@ footer p {
     padding-top: 0.5rem;
   }
 }
+
+
+
+
+
+
+
