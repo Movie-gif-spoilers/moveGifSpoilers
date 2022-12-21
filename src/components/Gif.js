@@ -3,8 +3,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
-import { Link, Outlet } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+
 
 AOS.init();
 
@@ -13,10 +12,6 @@ function Gif(props) {
 
 	const [clicked, setClicked] = useState(false);
 
-
-	// console.log('I just rendered with these keywords', props.keyword);
-
-	const { keyword: keyword } = useParams();
 
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
