@@ -5,7 +5,6 @@ import Favourites from './NavBar.js';
 import SearchBar from './SearchBar';
 // import {homeNavBar} from "./NavBar.js";
 
-
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
 	const [shuffle, setShuffle] = useState([]);
@@ -25,7 +24,6 @@ const DisplayGifs = (props) => {
 	const handleGifClick = (gifKeyword) => {
 		props.setKeywords([gifKeyword]);
 	};
-
 
 	const WelcomeMessage = () => {
 		return props.keywords.length === 0 ? (
@@ -63,36 +61,38 @@ const DisplayGifs = (props) => {
 							);
 						})}
 					</ul>
-          
-         <div className="randomAndSave wrapper">
-				<div>
-					{keywords.length === 1 || keywords.length === 0 ? null : (
-						<button className="shuffleButton" onClick={handleRandomize}>
-							New set of movie gifs
-						</button>
-					)}
-
 				</div>
 
-
-				<div className="randomAndSave">
+				<div className="randomAndSave wrapper">
 					<div>
-						{keywords.length === 0 ? null : (
+						{keywords.length === 1 || keywords.length === 0 ? null : (
 							<button
 								className="shuffleButton"
 								onClick={handleRandomize}
 							>
-								Click for new set of random gifs
+								New set of movie gifs
 							</button>
 						)}
 					</div>
 
-					<div className="favesButton">
-						{keywords.length === 0 ? null : <Favourites />}
+					<div className="randomAndSave">
+						<div>
+							{keywords.length === 0 ? null : (
+								<button
+									className="shuffleButton"
+									onClick={handleRandomize}
+								>
+									Click for new set of random gifs
+								</button>
+							)}
+						</div>
+
+						<div className="favesButton">
+							{keywords.length === 0 ? null : <Favourites />}
+						</div>
 					</div>
 				</div>
 
-				<div className="watchingImg" />
 				<div className="watchingImg wrapper">
 					<img
 						src={watching2}
@@ -121,7 +121,7 @@ const DisplayGifs = (props) => {
 
 export default DisplayGifs;
 
-// Display gifs (MVP)
+{/* // Display gifs (MVP)
 // a. Get the full array of keywords from the prop (app.js)
 // i. Use useEffect
 // 1. Inside the useEffect we want to do a for loop 3 times
@@ -129,4 +129,4 @@ export default DisplayGifs;
 // 1. Makes a call to the giphy API
 // 2. Return JSX with URL to display to the page
 // 2. (Put the return into an array  map through this array to display to the page Display
-// the move titles as well )
+// the move titles as well ) */}
