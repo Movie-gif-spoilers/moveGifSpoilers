@@ -3,7 +3,6 @@ import { firestoreDB } from '../firebase/firebaseConfig';
 import { useEffect, useState } from 'react';
 import SavedGif from './SavedGif';
 import { HomeNavBar } from './NavBar.js';
-import { Link } from 'react-router-dom';
 
 const DisplaySaved = () => {
 	const [savedGifs, setSavedGifs] = useState([]);

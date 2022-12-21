@@ -1,7 +1,6 @@
 import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import { getMovieId } from './ApiCalls';
-import { Link } from 'react-router-dom';
 
 
 
@@ -50,7 +49,7 @@ const SearchBar = (props) => {
 					Enter a movie and press play
 				</label>
 				<input
-					placeholder="Enter a movie and press play"
+					placeholder="Enter a movie & press play"
 					onChange={userChoice}
 					type="text"
 					id="userMovieChoice"
