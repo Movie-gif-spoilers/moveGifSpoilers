@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
+import { addToFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
-import { Link, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 AOS.init();
 
@@ -13,6 +13,7 @@ function Gif(props) {
 
 	// console.log('I just rendered with these keywords', props.keyword);
 
+	// eslint-disable-next-line
 	const { keyword: keyword } = useParams();
 
 	useEffect(() => {
@@ -22,8 +23,6 @@ function Gif(props) {
 
 	// console.log('after setting current gifs', currentGifs);
 	function openGiphyByMethod(e) {
-		// console.log(e);
-		// alert("testing")
 		window.open(`https://giphy.com/search/${keyword}`);
 	}
 
@@ -46,24 +45,33 @@ function Gif(props) {
 							}}
 						/>
 
-						<button className="giphyClick" onClick={openGiphyByMethod}>
-							<img
-								className="giphyIcon"
-								src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg"
-								alt={props.keyword}
-							/>
-						</button>
+<p class="keywordsP">{props.keyword}</p>
 
-						<p class="keywordsP">{props.keyword}</p>
-						<div className="saveDelete">
-							<button
-								onClick={() =>
-									handleSave(props.keyword, props.movieTitle, gif.id)
-								}
-							>
-								Save
-							</button>
-						</div>
+
+							<div className="giphyOrSaveOptions">
+								
+								<div className="saveDelete">
+									<button
+										onClick={() =>
+											handleSave(props.keyword, props.movieTitle, gif.id)
+										}
+									>
+									<FontAwesomeIcon icon="heart" className="heartIcon" /> Save
+									</button>
+								</div>
+
+								<button className="giphyClick" onClick={openGiphyByMethod}>
+									<img
+										className="giphyIcon"
+										src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg"
+										alt={props.keyword}
+									/>
+								</button>
+
+							</div>
+
+
+
 					</li>
 				);
 			})}

@@ -183,14 +183,14 @@ main {
 .gifFlex .gifArea {
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem 1rem;
+  gap: 5rem 1.2rem;
   justify-content: center;
 }
 
 .gifPic img {
   width: 100%;
   height: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   border-radius: 15px;
 }
 
@@ -198,6 +198,8 @@ li {
   padding: 10px;
   height: 300px;
   width: 300px;
+  background-color: white;
+  border-radius: 10px 10px 0 0 ;
 }
 
 
@@ -206,7 +208,8 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 2.7rem;
+  margin-top: 5.5rem;
 }
 
 .shuffleButton,
@@ -214,12 +217,11 @@ li {
   background-color: #B3D5DF;
   border: 1.5px solid black;
   border-radius: 1rem;
-  margin-top: 3.5rem;
 }
 
 /* random shuffle */
 .shuffleButton {
-  width: 350px;
+  width: 270px;
   padding: 12px;
 }
 
@@ -234,19 +236,63 @@ li {
 
 /* view faves */
 .favesButton .navBar {
-  width: 250px;
-  padding-top: 0.4rem;
+  width: 270px;
+  padding-top: 0.5rem;
 }
 
 nav .favesP {
   display: inline-block;
-  padding: 0px 8px 9px;
+  padding: 0px 8px 10px;
   font-size: 1.25rem;
 }
 
 .randomAndSave .heartIcon {
   font-size: 1.8rem;
   margin-bottom: -2.6px;
+}
+
+/* GIPHY AND SAVE BUTTONS */
+.giphyOrSaveOptions,
+.keywordsP  {
+  background-color: white;
+  width: 300px;
+  margin-left: -10px;
+}
+.giphyOrSaveOptions {
+  padding-bottom: 10px;
+  border-radius: 0 0 10px 10px;
+}
+/* giphy */
+.giphyClick {
+  width: 40%;
+}
+
+img.giphyIcon {
+  padding: 0;
+  width: 65px;
+}
+
+/* is this being used? */
+.gifKeyword {
+  font-size: 1rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* save */
+.saveDelete {
+  /* display: flex; */
+  gap: 20px;
+}
+
+.saveDelete .heartIcon{
+  font-size: 1.1rem;
+
+}
+.giphyOrSaveOptions{
+  display: flex;
+  justify-content: space-between;
 }
 
 /* THE BENCH PEOPLE */
@@ -278,32 +324,80 @@ nav .favesP {
   padding-top: 2.5rem;
 }
 
-.giphyClick {
-  width: 40%;
-}
-
-.giphyIcon {
-  margin-left: -190px;
-}
-
-.gifKeyword {
-  font-size: 1rem;
-  text-transform: capitalize;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.saveDelete {
-  display: flex;
-  gap: 20px;
-}
 
 /* FOOTER */
 footer {
   border-top:  2px solid black;
+  padding: 1rem;
 }
 footer p {
-  padding: 1rem;
+  padding: 0.5rem 0;
   font-size: 1rem;
   font-weight: 600;
+}
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 690px) {
+  .randomAndSave {
+    flex-direction: column;
+    gap: 1.7rem;
+    padding-top: 0.8rem;
+  }
+}
+
+@media (max-width: 565px) {
+
+  h1 {
+    font-size: 3.7rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  .gifsH3 {
+    font-size: 1.8rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+
+  input {
+    width: 17rem;
+    font-size: 1.2rem;
+    height: 3rem;
+  }
+
+  form {
+    padding: 1rem 0;
+  }
+
+  button {
+    width: 5.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .viewFaves .heartIcon {
+    font-size: 2.5rem;
+  }
+}
+
+
+@media (max-width: 490px) {
+  footer p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 470px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
 }

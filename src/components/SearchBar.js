@@ -1,7 +1,6 @@
 import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import { getMovieId } from './ApiCalls';
-import { Link } from 'react-router-dom';
 
 
 

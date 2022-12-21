@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 import Favourites from './NavBar.js';
-import { Link } from 'react-router-dom';
 // import {homeNavBar} from "./NavBar.js";
 
 const DisplayGifs = (props) => {
@@ -47,11 +46,11 @@ const DisplayGifs = (props) => {
 				</ul>
 			</div>
 
-			<div className="randomAndSave">
+			<div className="randomAndSave wrapper">
 				<div>
 					{keywords.length === 0 ? null : (
 						<button className="shuffleButton" onClick={handleRandomize}>
-							Click for new set of random gifs
+							New set of movie gifs
 						</button>
 					)}
 				</div>

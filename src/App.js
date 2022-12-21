@@ -8,7 +8,7 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
 
 function App() {
@@ -78,8 +78,6 @@ function App() {
 						<p>
 							Checkout the favs section if you're not ready to search for
 							a movie yet,
-						</p>
-						<p>
 							or if you want to see movie gifs that you or other people
 							have saved!
 						</p>
