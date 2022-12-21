@@ -75,21 +75,8 @@ const DisplayGifs = (props) => {
 						)}
 					</div>
 
-					<div className="randomAndSave">
-						<div>
-							{keywords.length === 0 ? null : (
-								<button
-									className="shuffleButton"
-									onClick={handleRandomize}
-								>
-									Click for new set of random gifs
-								</button>
-							)}
-						</div>
-
-						<div className="favesButton">
-							{keywords.length === 0 ? null : <Favourites />}
-						</div>
+					<div className="favesButton">
+						{keywords.length === 0 ? null : <Favourites />}
 					</div>
 				</div>
 
