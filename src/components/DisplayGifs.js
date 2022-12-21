@@ -49,7 +49,7 @@ const DisplayGifs = (props) => {
 
 			<div className="randomAndSave">
 				<div>
-					{keywords.length === 1 ? null : (
+					{keywords.length === 1 || keywords.length === 0 ? null : (
 						<button className="shuffleButton" onClick={handleRandomize}>
 							Click for new set of random gifs
 						</button>
