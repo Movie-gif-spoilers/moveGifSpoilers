@@ -1,11 +1,22 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
+<<<<<<< HEAD
 import { Link, Routes, Route } from 'react-router-dom';
+=======
+import Favourites from './NavBar.js';
+import { Link } from 'react-router-dom';
+// import {homeNavBar} from "./NavBar.js";
+>>>>>>> 1e198d9f28d3456dba5ed5fa58bf3cfedec0f159
 
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
 	const [shuffle, setShuffle] = useState([]);
+
+	const { keyword: newKeyword } = useParams();
+
+	console.log('new keyword', newKeyword);
 
 	function getMultipleRandom(arr, num) {
 		const shuffled = [...arr].sort(() => 0.5 - Math.random());
@@ -13,32 +24,46 @@ const DisplayGifs = (props) => {
 		return shuffled.slice(0, num);
 	}
 
-	function handleRandomize() {
-		setShuffle(getMultipleRandom(props.keywords, 5));
+	function handleRandomize(e) {
+		setShuffle(getMultipleRandom(props.keywords, 10));
+		console.log(e);
 	}
 
 	const keywords = getMultipleRandom(props.keywords, 4);
 	console.log('randoms', getMultipleRandom(props.keywords, 4));
 
-	// console.log('keywords', keywords);
+	const keywordLength = keywords.length;
 
 	return (
 		<section className="displayGifs gifFlex" id="displayGifs">
 			<div className="gifPic wrapper">
-				<ul className="gifFlex gifArea">
+				<ul className="gifArea">
 					{keywords.map((keyword) => {
 						return (
-							<Gif keyword={keyword} movieTitle={props.movieTitle} />
+							<Gif
+								keyword={keyword}
+								handleGifClick={props.handleGifClick}
+								keywordLength={keywordLength}
+								movieTitle={props.movieTitle}
+							/>
 						);
 					})}
 				</ul>
 			</div>
 
-			{ keywords.length === 0 ? null : 	<button className="shuffleButton" onClick={handleRandomize}>
-				Click for new set of random gifs
-			</button>}
+			<div className="randomAndSave">
+				<div>
+					{keywords.length === 0 ? null : (
+						<button className="shuffleButton" onClick={handleRandomize}>
+							Click for new set of random gifs
+						</button>
+					)}
+				</div>
 
-
+				<div className="favesButton">
+					{keywords.length === 0 ? null : <Favourites />}
+				</div>
+			</div>
 
 			<div className="watchingImg" />
 			<div className="watchingImg wrapper">
