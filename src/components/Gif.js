@@ -3,27 +3,30 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { addToFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
+
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 AOS.init();
 
 function Gif(props) {
 	const [currentGifs, setCurrentGifs] = useState([]);
 
-	// console.log('I just rendered with these keywords', props.keyword);
+	const [clicked, setClicked] = useState(false);
 
-	// eslint-disable-next-line
-	const { keyword: keyword } = useParams();
 
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
 		// eslint-disable-next-line
-	}, [props.keyword]);
+	}, [props.keyword, clicked]);
 
 	// console.log('after setting current gifs', currentGifs);
 	function openGiphyByMethod(e) {
-		window.open(`https://giphy.com/search/${keyword}`);
+
+		// console.log(e);
+		// alert("testing")
+		window.open(`https://giphy.com/search/${props.keyword}`);
 	}
 
 	const handleSave = (keyword, movieTitle, gifID) => {
@@ -31,19 +34,26 @@ function Gif(props) {
 		addToFirestoreDB(keyword, movieTitle, gifID);
 	};
 
+	
+
 	return (
 		<>
 			{currentGifs.map((gif) => {
 				// console.log('gif being mapped', gif.id);
 				return (
-					<li data-aos="flip-left" key={gif.id}>
+
+					<li data-aos="flip-left" key={gif.id} className="homeLi">
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt={props.keyword}
 							onClick={() => {
+								
 								props.handleGifClick(props.keyword);
+								setClicked(!clicked);
+								
 							}}
-						/>
+							/>
+
 
 <p class="keywordsP">{props.keyword}</p>
 
@@ -69,8 +79,6 @@ function Gif(props) {
 								</button>
 
 							</div>
-
-
 
 					</li>
 				);

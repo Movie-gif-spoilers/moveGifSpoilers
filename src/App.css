@@ -202,6 +202,69 @@ li {
   border-radius: 10px 10px 0 0 ;
 }
 
+/* This is added in styles */
+
+.saveDelete {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.savedGifsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.savedGifPic {
+  width: 25%;
+  margin-bottom: 55px;
+}
+
+.savedP {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.savedKeyWordP{
+  font-style: italic;
+  margin-right: 10px;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.savedMovieTitle {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.savedLi {
+  position: relative;
+}
+
+.deleteButton{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  background: #B3D5DF;
+  border-radius: 50%;
+  box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+  border: 2px solid white;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 1.5rem; 
+
+}
+
+
+
+.navBar {
+  margin-bottom: 50px;
+}
+
 
 /* RANDOM GIFS BUTTON & FAVES BUTTON */
 .randomAndSave {
