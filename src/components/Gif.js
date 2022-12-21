@@ -11,6 +11,9 @@ AOS.init();
 function Gif(props) {
 	const [currentGifs, setCurrentGifs] = useState([]);
 
+	const [clicked, setClicked] = useState(false);
+
+
 	// console.log('I just rendered with these keywords', props.keyword);
 
 	const { keyword: keyword } = useParams();
@@ -18,19 +21,21 @@ function Gif(props) {
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
 		// eslint-disable-next-line
-	}, [props.keyword]);
+	}, [props.keyword, clicked]);
 
 	// console.log('after setting current gifs', currentGifs);
 	function openGiphyByMethod(e) {
 		// console.log(e);
 		// alert("testing")
-		window.open(`https://giphy.com/search/${keyword}`);
+		window.open(`https://giphy.com/search/${props.keyword}`);
 	}
 
 	const handleSave = (keyword, movieTitle, gifID) => {
 		console.log('handleSave Fired');
 		addToFirestoreDB(keyword, movieTitle, gifID);
 	};
+
+	
 
 	return (
 		<>
@@ -43,7 +48,10 @@ function Gif(props) {
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt={props.keyword}
 							onClick={() => {
+								
 								props.handleGifClick(props.keyword);
+								setClicked(!clicked);
+								
 							}}
 							/>
 
@@ -59,6 +67,7 @@ function Gif(props) {
 						<div className="saveDelete">
 							<button
 								onClick={() =>
+									
 									handleSave(props.keyword, props.movieTitle, gif.id)
 								}
 								>
