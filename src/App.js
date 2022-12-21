@@ -1,14 +1,11 @@
 import './App.css';
-// import react from 'react';
 import Header from './components/Header.js';
 import DisplayGifs from './components/DisplayGifs.js';
 import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
-
 import { Navigate, Route, Routes } from 'react-router-dom';
-
 import DisplaySaved from './components/DisplaySaved';
 
 function App() {
@@ -26,41 +23,48 @@ function App() {
 
 	useEffect(() => {
 		if (id) {
+			// This getKeywords function is from our API call which we pass through the following variables to execute the call based off of the ID we recieve.
 			getKeywords(apiKey, id, setKeywords);
-			console.log('check id', id);
 		}
 	}, [id]);
 
-	return (
-		<div className="App">
-			<Header />
-			<main>
-				<Routes>
-					<Route path="/" element={<Navigate to="/home" />} />
-					<Route
-						path="/home"
-						element={
-							<DisplayGifs
-								keywords={keywords}
-								movieTitle={movieTitle}
-								setKeywords={setKeywords}
-								setId={setId}
-								apiKey={apiKey}
-								setMovieTitle={setMovieTitle}
-							/>
-						}
-					/>
-					<Route path="/viewSavedGifs" element={<DisplaySaved />} />
-				</Routes>
+// All of our JSX renders live here:
+return (
+	<div className="App">
+		<Header />
+		<main>
+			{/* Route created to navigate back to home. This will be utilized for going between our routes or home & favorites  */}
+			<Routes>
+				<Route path="/" element={<Navigate to="/home" />} />
+				<Route
+					path="/home"
+					element={
+						// We add props to our Display gif components which we pass back to App.js
+						<DisplayGifs
+							keywords={keywords}
+							movieTitle={movieTitle}
+							setKeywords={setKeywords}
+							setId={setId}
+							apiKey={apiKey}
+							setMovieTitle={setMovieTitle}
+						/>
+					}
+				/>
+				{/* Secondary route located in our Display Saved components where users can visit their favorite gifs */}
+				<Route path="/viewSavedGifs" element={<DisplaySaved />} />
+			</Routes>
 
-			</main>
+		</main>
 
-			<Footer />
-		</div>
-	);
+		<Footer />
+	</div>
+);
 }
 
 export default App;
+
+
+// ===================== PSEUDO CODE =====================================
 
 // App.js (State for both API calls)
 // a. Take the user input from search bar
