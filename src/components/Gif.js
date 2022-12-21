@@ -20,8 +20,6 @@ function Gif(props) {
 		// eslint-disable-next-line
 	}, [props.keyword]);
 
-<<<<<<< HEAD
-=======
 	// console.log('after setting current gifs', currentGifs);
 	function openGiphyByMethod(e) {
 		// console.log(e);
@@ -29,7 +27,6 @@ function Gif(props) {
 		window.open(`https://giphy.com/search/${keyword}`);
 	}
 
->>>>>>> 1e198d9f28d3456dba5ed5fa58bf3cfedec0f159
 	const handleSave = (keyword, movieTitle, gifID) => {
 		console.log('handleSave Fired');
 		addToFirestoreDB(keyword, movieTitle, gifID);
@@ -48,8 +45,6 @@ function Gif(props) {
 								props.handleGifClick(props.keyword);
 							}}
 						/>
-<<<<<<< HEAD
-=======
 
 						<button className="giphyClick" onClick={openGiphyByMethod}>
 							<img
@@ -59,7 +54,6 @@ function Gif(props) {
 							/>
 						</button>
 
->>>>>>> 1e198d9f28d3456dba5ed5fa58bf3cfedec0f159
 						<p class="keywordsP">{props.keyword}</p>
 						<div className="saveDelete">
 							<button
