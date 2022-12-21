@@ -37,21 +37,22 @@ function Gif(props) {
 			{currentGifs.map((gif) => {
 				// console.log('gif being mapped', gif.id);
 				return (
-					<li data-aos="flip-left" key={gif.id}>
+
+					<li data-aos="flip-left" key={gif.id} className="homeLi">
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt={props.keyword}
 							onClick={() => {
 								props.handleGifClick(props.keyword);
 							}}
-						/>
+							/>
 
 						<button className="giphyClick" onClick={openGiphyByMethod}>
 							<img
 								className="giphyIcon"
 								src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg"
 								alt={props.keyword}
-							/>
+								/>
 						</button>
 
 						<p class="keywordsP">{props.keyword}</p>
@@ -60,7 +61,7 @@ function Gif(props) {
 								onClick={() =>
 									handleSave(props.keyword, props.movieTitle, gif.id)
 								}
-							>
+								>
 								Save
 							</button>
 						</div>

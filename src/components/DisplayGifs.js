@@ -31,9 +31,9 @@ const DisplayGifs = (props) => {
 	const keywordLength = keywords.length;
 
 	return (
-		<section className="displayGifs gifFlex" id="displayGifs">
-			<div className="gifPic wrapper">
-				<ul className="gifArea">
+		<section className="displayGifs gifFlex homeGifsList">
+			<div className="gifPic">
+				<ul className="gifArea displayGifs gifFlex">
 					{keywords.map((keyword) => {
 						return (
 							<Gif
@@ -49,7 +49,7 @@ const DisplayGifs = (props) => {
 
 			<div className="randomAndSave">
 				<div>
-					{keywords.length === 0 ? null : (
+					{keywords.length === 1 ? null : (
 						<button className="shuffleButton" onClick={handleRandomize}>
 							Click for new set of random gifs
 						</button>

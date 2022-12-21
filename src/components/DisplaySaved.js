@@ -35,19 +35,21 @@ const DisplaySaved = () => {
 
 	return (
 		<ul>
-			Saved Gifs
 			<HomeNavBar />
+			<div className="savedGifsList">
+
 			{savedGifs.map((gif) => {
 				console.log('gif', gif);
 				return (
 					<SavedGif
-						keyword={gif['Keyword']}
-						gifID={gif['Gif ID']}
-						firestoreID={gif['firestoreID']}
-						movieTitle={gif['Movie Title']}
+					keyword={gif['Keyword']}
+					gifID={gif['Gif ID']}
+					firestoreID={gif['firestoreID']}
+					movieTitle={gif['Movie Title']}
 					/>
-				);
-			})}
+					);
+				})}
+				</div>
 		</ul>
 	);
 };
