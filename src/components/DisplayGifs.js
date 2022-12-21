@@ -3,6 +3,8 @@ import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 import Favourites from './NavBar.js';
 import SearchBar from './SearchBar';
+// import {homeNavBar} from "./NavBar.js";
+
 
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
@@ -23,6 +25,7 @@ const DisplayGifs = (props) => {
 	const handleGifClick = (gifKeyword) => {
 		props.setKeywords([gifKeyword]);
 	};
+
 
 	const WelcomeMessage = () => {
 		return props.keywords.length === 0 ? (
@@ -60,7 +63,17 @@ const DisplayGifs = (props) => {
 							);
 						})}
 					</ul>
+          
+         <div className="randomAndSave wrapper">
+				<div>
+					{keywords.length === 1 || keywords.length === 0 ? null : (
+						<button className="shuffleButton" onClick={handleRandomize}>
+							New set of movie gifs
+						</button>
+					)}
+
 				</div>
+
 
 				<div className="randomAndSave">
 					<div>

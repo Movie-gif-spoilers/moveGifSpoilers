@@ -6,7 +6,9 @@ import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
+
 import { Navigate, Route, Routes } from 'react-router-dom';
+
 import DisplaySaved from './components/DisplaySaved';
 
 function App() {
@@ -50,6 +52,7 @@ function App() {
 					/>
 					<Route path="/viewSavedGifs" element={<DisplaySaved />} />
 				</Routes>
+
 			</main>
 
 			<Footer />
