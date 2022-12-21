@@ -3,22 +3,22 @@ import './App.css';
 import Header from './components/Header.js';
 import DisplayGifs from './components/DisplayGifs.js';
 import SearchBar from './components/SearchBar';
+import Favourites from './components/NavBar.js';
 import Footer from './components/Footer.js';
 import { useState, useEffect } from 'react';
 import { getKeywords } from './components/ApiCalls.js';
 import './components/FontAwesome.js';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import DisplaySaved from './components/DisplaySaved';
-import { Routes, Route } from 'react-router-dom';
 
 function App() {
-	// API Key
+	// API Key for movie api
 	const apiKey = '66a65cc7632ce390e4eb0fe1e74602e1';
-	// state that holds the movie's id from api
 
+	// state that holds the movie's id from first api call
 	const [id, setId] = useState('');
 
-	// state that holds movie title
+	// state that holds the movie's title from first api call
 	const [movieTitle, setMovieTitle] = useState('');
 
 	// State to hold keywords returned from second api call
@@ -35,6 +35,7 @@ function App() {
 		setKeywords([gifKeyword]);
 	};
 
+
 	return (
 		<div className="App">
 			<header>
@@ -47,7 +48,6 @@ function App() {
 					apiKey={apiKey}
 					setMovieTitle={setMovieTitle}
 				/>
-
 				{keywords.length === 0 ? (
 					<h3 className="welcomeH3 wrapper">
 						Welcome, your movie will begin shortly
@@ -58,13 +58,36 @@ function App() {
 						{movieTitle}
 					</h3>
 				)}
-
-				<DisplayGifs keywords={keywords} movieTitle={movieTitle} handleGifClick={handleGifClick} />
-
 				<Routes>
-					<Route path="/displaySaved" element={<DisplaySaved />} />
+					<Route
+						path="/"
+						element={
+							<DisplayGifs
+								keywords={keywords}
+								movieTitle={movieTitle}
+								handleGifClick={handleGifClick}
+							/>
+						}
+					/>
+					<Route path="/viewSavedGifs" element={<DisplaySaved />} />
 				</Routes>
+				<section className="viewFaves">
+					<div className="favesContainer wrapper">
+						<h3 className="viewSavedH3">
+							View previously saved movie gifs
+						</h3>
+						<p>
+							Checkout the favs section if you're not ready to search for
+							a movie yet,
+						</p>
+						<p>
+							or if you want to see movie gifs that you or other people
+							have saved!
+						</p>
 
+						<Favourites />
+					</div>
+				</section>
 			</main>
 			<Footer />
 		</div>

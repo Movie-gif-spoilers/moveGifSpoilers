@@ -6,19 +6,25 @@ const SavedGif = (props) => {
 	};
 
 	return (
-		<li data-aos="flip-left" key={props.firestoreID}>
-			<img
+		<div className='gifPic wrapper savedGifPic'>
+
+		<li  key={props.firestoreID} className="savedLi">
+			<img 
 				src={`https://media.giphy.com/media/${props.gifID}/giphy.gif`}
 				alt={props.keyword}
-			/>
-			<p>{props.keyword}</p>
-			<p>{props.movieTitle}</p>
-			<div className="saveDelete">
+				/>
+			<div className='savedP'>
+			<p className='savedKeyWordP'>{props.keyword}</p>
+			<p className='savedMovieTitle'>({props.movieTitle})</p>
+			</div>
+			<div className="saveDelete deleteButton">
 				<button onClick={() => handleDelete(props.firestoreID)}>
-					Delete
+					X
 				</button>
 			</div>
 		</li>
+				
+				</div>
 	);
 };
 

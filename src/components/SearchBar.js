@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { getMovieId } from './ApiCalls';
 import { Link } from 'react-router-dom';
 
+
+
 const SearchBar = (props) => {
 	// state that holds the user's form input
 	const [input, setInput] = useState('');
@@ -58,14 +60,11 @@ const SearchBar = (props) => {
 
 				<button type="submit">
 
-			
 						<img src={play} alt="play" />{' '}
-
 
 				</button>
 			</form>
-
-
+			
 		</section>
 	);
 };
