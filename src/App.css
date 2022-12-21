@@ -198,21 +198,7 @@ li {
   padding: 10px;
   height: 300px;
   width: 300px;
-<<<<<<< HEAD
-  /* background-color: white;
-  border-radius: 10px 10px 0 0; */
 }
-/* li p {
-  background-color: white;
-  width: 300px;
-  margin-left: -10px;
-  padding-bottom: 10px;
-  border-radius: 0px 0px 10px 10px;
-  
-} */
-=======
-}
->>>>>>> 1e198d9f28d3456dba5ed5fa58bf3cfedec0f159
 
 
 /* RANDOM GIFS BUTTON & FAVES BUTTON */
@@ -270,11 +256,6 @@ nav .favesP {
   margin-bottom: -.23rem;
 }
 
-<<<<<<< HEAD
-.saveDelete {
-  display: flex;
-  gap: 20px;
-=======
 
 /* FAVOURITES SECTION */
 .viewFaves {
@@ -295,7 +276,6 @@ nav .favesP {
 
 .viewFaves .heartIcon {
   padding-top: 2.5rem;
->>>>>>> 1e198d9f28d3456dba5ed5fa58bf3cfedec0f159
 }
 
 .giphyClick {

@@ -1,9 +1,6 @@
 import play from '../assets/play.png';
 import { useEffect, useState } from 'react';
 import { getMovieId } from './ApiCalls';
-import { Link } from 'react-router-dom';
-
-
 
 const SearchBar = (props) => {
 	// state that holds the user's form input
@@ -26,19 +23,15 @@ const SearchBar = (props) => {
 		setSavedInput(input);
 	};
 
-
-
 	return (
 		<section className="searchBar">
 			<div className="wrapper">
-			<h3 class="searchBarH3">Summarize any movie with gifs</h3>
+				<h3 className="searchBarH3">Summarize any movie with gifs</h3>
 				<p>
 					Life is too short to spend HOURS watching films! There are simply
 					TOO many!
 				</p>
-				<p>
-					Search a movie title to find out the summary... in gif form!
-				</p>
+				<p>Search a movie title to find out the summary... in gif form!</p>
 			</div>
 
 			<form
@@ -59,12 +52,9 @@ const SearchBar = (props) => {
 				/>
 
 				<button type="submit">
-
-						<img src={play} alt="play" />{' '}
-
+					<img src={play} alt="play" />{' '}
 				</button>
 			</form>
-			
 		</section>
 	);
 };

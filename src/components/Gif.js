@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { addToFirestoreDB, deleteFromFirestoreDB } from '../firebase/firestore';
+import { addToFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
-import { Link, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 AOS.init();
@@ -13,7 +12,7 @@ function Gif(props) {
 
 	// console.log('I just rendered with these keywords', props.keyword);
 
-	const { keyword: keyword } = useParams();
+	const { keyword } = useParams();
 
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
@@ -54,7 +53,7 @@ function Gif(props) {
 							/>
 						</button>
 
-						<p class="keywordsP">{props.keyword}</p>
+						<p className="keywordsP">{props.keyword}</p>
 						<div className="saveDelete">
 							<button
 								onClick={() =>
