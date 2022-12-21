@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const HomeNavBar = () => {
 	return (
-		<Link to="/">
+		<Link to="/home">
 			<section className="navBar">
 				<nav className="navBar">
 					<FontAwesomeIcon icon="house" className="houseIcon" />
@@ -18,10 +18,8 @@ const Favourites = () => {
 	return (
 		<Link to="/viewsavedgifs">
 			<nav className="navBar">
-				<a href="#header" className="favs">
-					<FontAwesomeIcon icon="heart" className="heartIcon" />
-					<p className="favesP"> View Favs </p>
-				</a>
+				<FontAwesomeIcon icon="heart" className="heartIcon" />
+				<p className="favesP"> View Favs </p>
 			</nav>
 		</Link>
 	);

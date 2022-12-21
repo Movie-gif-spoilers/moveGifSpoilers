@@ -341,6 +341,7 @@ img.giphyIcon {
 /* save */
 .saveDelete {
   gap: 20px;
+  display: flex;
 }
 
 .saveDelete .heartIcon{

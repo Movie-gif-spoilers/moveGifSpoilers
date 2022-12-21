@@ -3,8 +3,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { addToFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
-
-import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
