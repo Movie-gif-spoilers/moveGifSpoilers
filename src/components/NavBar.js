@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 export const HomeNavBar = () => {
 	return (
 		<Link to="/home">
-			<section className="navBar">
+			<section className="home navBar">
 				<nav className="navBar">
 					<FontAwesomeIcon icon="house" className="houseIcon" />
-					<p>Home</p>
+					<p className='homeP'>Home</p>
 				</nav>
 			</section>
 		</Link>

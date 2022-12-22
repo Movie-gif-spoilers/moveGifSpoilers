@@ -50,9 +50,11 @@ function App() {
 							/>
 						}
 					/>
-					<Route path="/viewSavedGifs" element={<DisplaySaved />} />
-				</Routes>
 
+					<Route path="/viewSavedGifs" 
+					element={<DisplaySaved />}  />
+
+				</Routes>
 			</main>
 
 			<Footer />

@@ -33,8 +33,18 @@ const DisplaySaved = () => {
 	}, []);
 
 	return (
+		<>
+		<div className="homeSection ">
+
+		<section className='wrapper'>
+			<h3 className='homeH3'>Welcome to the favourites section</h3>
+			<p>This is where you can checkout the movie gifs that you and others have saved! If you want to search for another movie or save more gifs, hit the home button to return</p>
+		<HomeNavBar />
+
+		</section>
+		</div>
+
 		<ul>
-			<HomeNavBar />
 			<div className="savedGifsList">
 
 			{savedGifs.map((gif) => {
@@ -50,6 +60,7 @@ const DisplaySaved = () => {
 				})}
 				</div>
 		</ul>
+		</>
 	);
 };
 

@@ -30,6 +30,16 @@ header, footer, input {
   background-color: #EADBC4;
 }
 
+.searchBar, .homeSection, .shuffleButton,
+.favesButton .navBar, .viewFaves {
+  background-color:#B3D5DF;
+}
+
+.searchBar, .homeSection {
+  border-bottom: 2px solid rgb(99, 97, 97);
+  border-top: 2px solid rgb(99, 97, 97);
+}
+
 /* TYPOGRAPHY */
 body {
   font-size: 125%;
@@ -80,7 +90,7 @@ h1, h2 {
 	-1px -1px 5px white;
 }
 
-.searchBarH3, .gifsH3, .welcomeH3, .viewSavedH3, .shuffleButton, .favesButton {
+.searchBarH3, .gifsH3, .welcomeH3, .viewSavedH3, .homeH3, .shuffleButton, .favesButton {
   text-shadow: -1px 0px 2px white;
 }
 
@@ -107,10 +117,7 @@ header {
 
 /* SEARCH BAR */
 .searchBar {
-  background-color:#B3D5DF;
   padding: 5rem 0 3rem;
-  border-top: 2px solid rgb(99, 97, 97);
-  border-bottom: 2px solid rgb(99, 97, 97);
 }
 
 .searchBar p {
@@ -161,7 +168,7 @@ button img {
 main {
   background-color: rgb(171, 190, 186);
   }
-.gifsH3 {
+.gifsH3, .homeH3 {
   padding: 3rem 0 1.5rem;
 }
 .welcomeH3 {
@@ -173,7 +180,7 @@ main {
   text-transform: uppercase;
 }
 
-/* DISPLAY GIFS */
+/* DISPLAY GIFS - HOME PAGE */
 .gifPic {
   display: flex;
   flex-wrap: wrap;
@@ -202,7 +209,15 @@ li {
   border-radius: 10px 10px 0 0 ;
 }
 
-/* This is added in styles */
+/* DISPLAY GIFS - FAVS PAGE */
+
+.home {
+  padding: 1.5rem;
+}
+
+.home .homeP {
+  padding-top: 1rem;
+}
 
 .saveDelete {
   display: flex;
@@ -211,24 +226,32 @@ li {
 }
 
 .savedGifsList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 3rem;
+  
 }
 
 .savedGifPic {
-  width: 25%;
-  margin-bottom: 55px;
+  padding-bottom: 2rem;
+}
+.savedGifPic img {
+  padding: 0.5rem;
+  width: 250px;
+  height: 250px;
 }
 
 .savedP {
   display: flex;
   justify-content: center;
-  padding: 10px;
 }
 
 .savedKeyWordP{
   font-style: italic;
-  margin-right: 10px;
+  padding-right: 10px;
   font-size: 1rem;
   text-transform: capitalize;
 }
@@ -240,6 +263,9 @@ li {
 
 .savedLi {
   position: relative;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .deleteButton{
@@ -270,7 +296,6 @@ li {
 
 .shuffleButton,
 .favesButton .navBar {
-  background-color: #B3D5DF;
   border: 1.5px solid black;
   border-radius: 1rem;
 }
@@ -363,7 +388,6 @@ img.giphyIcon {
 
 /* FAVOURITES SECTION */
 .viewFaves {
-  background-color: #B3D5DF;
   border-top: 2px solid rgb(99, 97, 97);
   padding: 5rem 0 3.5rem;
   display: flex;
@@ -397,18 +421,25 @@ footer p {
 
 
 /* MEDIA QUERIES */
-@media (max-width: 1301px) {
-  .savedGifPic {
-    width: 50%;
-  }
-}
 
-@media (max-width: 1100px) {
+@media (max-width: 1120px) {
   header {
     background-position: 0 100%;
     background-size: 100%;
     padding-bottom: 0;
   }
+
+  .savedLi {
+    margin: 0;
+  }
+}
+
+@media (max-width: 985px) {
+  .savedGifsList {
+    grid-template-columns: repeat(2, 1fr); 
+    max-width: 985px;
+  }
+
 }
 
 @media (max-width: 790px) {
@@ -420,12 +451,8 @@ footer p {
 
 @media (max-width: 701px) {
 
-  .savedGifsList.wrapper {
-    justify-content: center;
-  }
-
-  .savedGifPic {
-    width: 60%;
+  .savedGifsList {
+    grid-template-columns: repeat(1, 1fr); 
   }
 }
 
@@ -507,12 +534,12 @@ footer p {
 
 }
 
-@media (max-width: 501px) {
+/* @media (max-width: 501px) {
 
   .savedGifPic {
     width: 80%;
   }
-}
+} */
 
 
 @media (max-width: 490px) {
@@ -598,6 +625,11 @@ footer p {
     height: 250px;
   }
 
+  .savedLi {
+    width: 300px;
+    height: 300px;
+  }
+
   .giphyOrSaveOptions,
   .keywordsP {
     width: 250px;
@@ -617,7 +649,8 @@ footer p {
     font-size: 2.1rem;
   }
 
-  .viewFaves .favesP {
+  .viewFaves .favesP
+  .home .homeP  {
     font-size: 1.1rem;
     padding-top: 0.5rem;
   }
@@ -632,12 +665,12 @@ footer p {
   }
 }
 
-@media (max-width: 376px) {
+/* @media (max-width: 376px) {
 
   .savedGifPic {
     width: 100%;
   }
-}
+} */
 
 @media (max-width: 360px) {
   header {
@@ -707,6 +740,16 @@ footer p {
   .viewFaves .favesP {
     font-size: 0.9rem;
     padding-top: 0.5rem;
+  }
+
+  .savedLi {
+    width: 240px;
+    height: 250px;
+  }
+
+  .savedGifPic img {
+    width: 200px;
+    height: 200px;
   }
 }
 
