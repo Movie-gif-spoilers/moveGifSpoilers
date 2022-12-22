@@ -3,7 +3,6 @@ import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 import Favourites from './NavBar.js';
 import SearchBar from './SearchBar';
-// import {homeNavBar} from "./NavBar.js";
 
 const DisplayGifs = (props) => {
 	// eslint-disable-next-line
@@ -16,7 +15,6 @@ const DisplayGifs = (props) => {
 
 	function handleRandomize(e) {
 		setShuffle(getMultipleRandom(props.keywords, 10));
-		console.log(e);
 	}
 
 	const keywords = getMultipleRandom(props.keywords, 4);
@@ -25,6 +23,7 @@ const DisplayGifs = (props) => {
 		props.setKeywords([gifKeyword]);
 	};
 
+	// This function controls the welcome message that changes before / after a search
 	const WelcomeMessage = () => {
 		return props.keywords.length === 0 ? (
 			<h3 className="welcomeH3 wrapper">
