@@ -90,7 +90,6 @@ export const getGif = async (props, setCurrentGifs) => {
 		// console.log('api', props.keywordLength);
 		setCurrentGifs(res.data.data);
 	} catch (error) {
-		console.log('checking errors', error);
 		if (error.response.status >= 500) {
 			alert('server error');
 		} else if (error.response.status > 300) {

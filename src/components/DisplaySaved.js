@@ -40,9 +40,9 @@ const DisplaySaved = () => {
 			<HomeNavBar />
 			<div className="savedGifsList">
 				{savedGifs.map((gif) => {
-					console.log('gif', gif);
 					return (
 						<SavedGif
+							key={gif['firestoreID']}
 							keyword={gif['Keyword']}
 							gifID={gif['Gif ID']}
 							firestoreID={gif['firestoreID']}
