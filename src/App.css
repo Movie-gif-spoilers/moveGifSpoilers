@@ -104,6 +104,22 @@ header {
   padding: 25vh 0 2rem;
 }
 
+.aboutAppButton {
+  background-color: #ddb3d6;
+  border: 1.5px solid black;
+  border-radius: 1rem;
+  width: 270px;
+  padding: 12px;
+  margin-top: 3rem;
+}
+
+.aboutAppButton:hover,
+.aboutAppButton:focus {
+  box-shadow: 0 0 5px 5px #f5c433;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 
 /* SEARCH BAR */
 .searchBar {
