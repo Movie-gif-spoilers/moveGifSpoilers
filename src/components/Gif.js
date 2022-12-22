@@ -52,7 +52,7 @@ function Gif(props) {
 
 						<div className="giphyOrSaveOptions">
 							<div className="saveDelete">
-								<button
+								<button className="saveButton"
 									onClick={() =>
 										handleSave(
 											props.keyword,

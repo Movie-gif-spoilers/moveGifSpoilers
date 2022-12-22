@@ -213,7 +213,6 @@ main {
 .gifPic img {
   width: 100%;
   height: 100%;
-  /* padding: 10px; */
   border-radius: 15px;
 }
 
@@ -252,7 +251,7 @@ li {
 }
 
 .savedGifPic {
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
 }
 .savedGifPic img {
   padding: 0.5rem;
@@ -263,7 +262,13 @@ li {
 .savedP {
   display: flex;
   justify-content: center;
+  background-color: white;
+  width: 300px;
+  margin-left: -16px;
+  border-radius: 0 0 10px 10px;
+  padding: 0 0.5rem 0.5rem;
 }
+
 
 .savedKeyWordP{
   font-style: italic;
@@ -282,6 +287,10 @@ li {
   border-radius: 10px;
   padding: 1rem;
   margin: 1rem;
+}
+
+.savedLi img {
+  width: 270px;
 }
 
 .deleteButton{
@@ -307,7 +316,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 2.7rem;
-  margin-top: 5.5rem;
+  margin-top: 2.5rem;
 }
 
 .shuffleButton,
@@ -316,10 +325,15 @@ li {
   border-radius: 1rem;
 }
 
+.favesButton {
+  margin-top: 0.5rem;
+}
+
 /* random shuffle */
 .shuffleButton {
   width: 270px;
   padding: 12px;
+  margin-top: 3rem;
 }
 
 
@@ -444,18 +458,24 @@ footer p {
     background-size: 100%;
     padding-bottom: 0;
   }
-
   .savedLi {
     margin: 0;
   }
 }
 
-@media (max-width: 985px) {
+@media (max-width: 1080px) {
   .savedGifsList {
     grid-template-columns: repeat(2, 1fr); 
-    max-width: 985px;
+    max-width: 1080px;
   }
-
+  .savedGifPic {
+    width: 40%;
+  }
+  .savedGifsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 790px) {
@@ -465,10 +485,10 @@ footer p {
   }
 }
 
-@media (max-width: 701px) {
+@media (max-width: 720px) {
 
-  .savedGifsList {
-    grid-template-columns: repeat(1, 1fr); 
+  .savedGifPic {
+    width: 55%;
   }
 }
 
@@ -482,11 +502,16 @@ footer p {
     flex-direction: column;
     gap: 1.7rem;
     padding-top: 0.8rem;
+    margin: 5;
   }
 
   header {
     background-position: -170px 100%;
     background-size: 130%;
+  }
+
+  .favesButton .navBar {
+    margin-top: -70px;
   }
 
 }
@@ -564,9 +589,6 @@ footer p {
       margin-top: 5rem;
     }
 
-  .savedGifPic {
-    width: 80%;
-  }
 }
 
 
@@ -602,11 +624,6 @@ footer p {
     padding-top: 30vh;
   }
 
-  /* .aboutAppButton {
-    width: 220px;
-    font-size: 1.25rem;
-    margin-top: 2rem;
-  } */
 }
 
 @media (max-width: 390px) {
@@ -637,7 +654,10 @@ footer p {
   .randomAndSave {
     gap: 1.2rem;
     padding-top: 0;
+  }
 
+  .favesButton {
+    margin-top: 2rem;
   }
 
   .randomAndSave .heartIcon {
@@ -704,14 +724,16 @@ footer p {
     transform: scale(1.05);
     transition: 0.3s;
   }
-}
 
-/* @media (max-width: 376px) {
-
-  .savedGifPic {
-    width: 100%;
+  .houseIcon {
+    font-size: 2.5rem;
   }
-} */
+
+  .navBar .homeP {
+    padding-top: 0.5rem;
+  }
+
+}
 
 @media (max-width: 360px) {
   header {
@@ -719,7 +741,7 @@ footer p {
   }
 
   .header h1 {
-    padding-top: 33vh;
+    padding-top: 25vh;
   }
 
   h1 {
@@ -749,6 +771,10 @@ footer p {
     margin-top: 0;
   }
 
+  .randomAndSave {
+    padding-bottom: 10px;
+  }
+
   .randomAndSave .heartIcon {
     font-size: 1.4rem;
   }
@@ -761,13 +787,13 @@ footer p {
   .favesButton .navBar {
     width: 230px;
     padding-top: 0.35rem;
+
   }
 
   img.giphyIcon {
     padding: 0;
     width: 55px;
   }
-
 
   .viewSavedH3 {
     padding-bottom: 1rem;
@@ -788,9 +814,44 @@ footer p {
     height: 250px;
   }
 
+  .savedGifPic {
+    padding-bottom: 2.3rem;
+  }
+
   .savedGifPic img {
-    width: 200px;
+    width: 210px;
     height: 200px;
+  }
+
+  .savedP {
+    width: 240px;
+  }
+
+  .savedKeyWordP, 
+  .savedMovieTitle {
+    font-size: 0.8rem;
+  }
+
+  .saveDelete button {
+    margin-left: 2px;
+  }
+
+  .saveDelete {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+  }
+
+  .saveDelete .saveButton {
+    margin: 0 0 0 25px;
+  }
+
+  .houseIcon {
+    font-size: 2rem;
+  }
+
+  .giphyOrSaveOptions {
+    padding: 0;
   }
 }
 
