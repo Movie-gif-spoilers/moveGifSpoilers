@@ -81,9 +81,15 @@ const DisplayGifs = (props) => {
 						)}
 					</div>
 
-					{/* Ternary operator for displaying our favorite buttons only if a keyword has been given */}
-					<div className="favesButton">
-						{keywords.length === 0 ? null : <Favourites />}
+
+					<div className="randomAndSave">
+          
+{/* Ternary operator for displaying our favorite buttons only if a keyword has been given */}
+
+						<div className="favesButton">
+							{keywords.length === 0 ? null : <Favourites />}
+						</div>
+
 					</div>
 				</div>
 
@@ -115,7 +121,7 @@ const DisplayGifs = (props) => {
 
 export default DisplayGifs;
 
-// Display gifs (MVP)
+{/* // Display gifs (MVP)
 // a. Get the full array of keywords from the prop (app.js)
 // i. Use useEffect
 // 1. Inside the useEffect we want to do a for loop 3 times
@@ -123,4 +129,4 @@ export default DisplayGifs;
 // 1. Makes a call to the giphy API
 // 2. Return JSX with URL to display to the page
 // 2. (Put the return into an array  map through this array to display to the page Display
-// the move titles as well )
+// the move titles as well ) */}
