@@ -28,6 +28,7 @@ function App() {
 		}
 	}, [id]);
 
+
 // All of our JSX renders live here:
 return (
 	<div className="App">
@@ -55,6 +56,7 @@ return (
 			</Routes>
 
 		</main>
+
 
 		<Footer />
 	</div>
