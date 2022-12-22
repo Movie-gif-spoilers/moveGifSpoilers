@@ -74,7 +74,7 @@ a, button {
   cursor: pointer;
   text-decoration: none;
 }
-a, a:visited, .shuffleButton {
+a, a:visited, button {
   color: black;
 }
 
