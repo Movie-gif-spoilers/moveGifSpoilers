@@ -3,7 +3,6 @@ import watching2 from '../assets/watching2.png';
 import Gif from './Gif';
 import Favourites from './NavBar.js';
 import SearchBar from './SearchBar';
-// import {homeNavBar} from "./NavBar.js";
 
 const DisplayGifs = (props) => {
 	

@@ -5,7 +5,10 @@ import { addToFirestoreDB } from '../firebase/firestore';
 import { getGif } from '../components/ApiCalls.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+<<<<<<< HEAD
 // Import for animations of gifs
+=======
+>>>>>>> 8b2ee6b531836d2273dab0a4edd94ab8c4bd2eed
 AOS.init();
 
 
@@ -19,8 +22,11 @@ function Gif(props) {
 	// We create state for our onClick which is passed to our image. This will trigger a rerender of the JSX so that our gifs based off of keywords will load
 	const [clicked, setClicked] = useState(false);
 
+<<<<<<< HEAD
 
 	// This useeffect utilizes our API call getGif function and passes through our props and setCurrentGifs. This is then triggers a rerender based off of our keyword or if a user has clicked our image.
+=======
+>>>>>>> 8b2ee6b531836d2273dab0a4edd94ab8c4bd2eed
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
 
@@ -29,7 +35,6 @@ function Gif(props) {
 
 	// A function holding a method used to direct users to Giphys database if they click on the giphy icon in our JSX
 	function openGiphyByMethod(e) {
-
 		window.open(`https://giphy.com/search/${props.keyword}`);
 	}
 
@@ -38,53 +43,51 @@ function Gif(props) {
 		addToFirestoreDB(keyword, movieTitle, gifID);
 	};
 
-	
-
 	return (
 		<>
 			{/* We use .map() to map through each gif and return our JSX */}
 			{currentGifs.map((gif) => {
 
 				return (
-
 					<li data-aos="flip-left" key={gif.id} className="homeLi">
 						<img
 							src={`https://media.giphy.com/media/${gif.id}/giphy.gif`}
 							alt={props.keyword}
 							onClick={() => {
-								
 								props.handleGifClick(props.keyword);
 								setClicked(!clicked);
-								
 							}}
-							/>
-
+						/>
 
 						<p class="keywordsP">{props.keyword}</p>
 
-
-							<div className="giphyOrSaveOptions">
-								
-								<div className="saveDelete">
-									<button
-										onClick={() =>
-											handleSave(props.keyword, props.movieTitle, gif.id)
-										}
-									>
-									<FontAwesomeIcon icon="heart" className="heartIcon" /> Save
-									</button>
-								</div>
-
-								<button className="giphyClick" onClick={openGiphyByMethod}>
-									<img
-										className="giphyIcon"
-										src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg"
-										alt={props.keyword}
-									/>
+						<div className="giphyOrSaveOptions">
+							<div className="saveDelete">
+								<button
+									onClick={() =>
+										handleSave(
+											props.keyword,
+											props.movieTitle,
+											gif.id
+										)
+									}
+								>
+									<FontAwesomeIcon
+										icon="heart"
+										className="heartIcon"
+									/>{' '}
+									Save
 								</button>
-
 							</div>
 
+							<button className="giphyClick" onClick={openGiphyByMethod}>
+								<img
+									className="giphyIcon"
+									src="https://cdn.worldvectorlogo.com/logos/giphy-logo.svg"
+									alt={props.keyword}
+								/>
+							</button>
+						</div>
 					</li>
 				);
 			})}
