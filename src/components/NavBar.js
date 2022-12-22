@@ -28,9 +28,3 @@ const Favourites = () => {
 };
 
 export default Favourites;
-
-// how to add the home button
-
-// import { homeNavBar }  from "./NavBar.js"
-// {homeNavBar()}
-// { keywords.length === 0 ? null : homeNavBar()}
