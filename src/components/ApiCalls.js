@@ -30,7 +30,6 @@ export const getMovieId = async (props, savedInput) => {
 			props.setMovieTitle(res.data.results[0].title);
 		}
 	} catch (error) {
-		console.log('checking errors', error);
 		if (error.response.status >= 500) {
 			alert('server error');
 		} else if (error.response.status > 300) {
@@ -59,7 +58,6 @@ export const getKeywords = async (apiKey, id, setKeywords) => {
 			setKeywords(newKeywordsArray);
 		});
 	} catch (error) {
-		console.log('checking errors', error);
 		if (error.response.status >= 500) {
 			alert('server error');
 		} else if (error.response.status > 300) {
@@ -87,7 +85,6 @@ export const getGif = async (props, setCurrentGifs) => {
 				limit: props.keywordLength === 1 ? 6 : 1,
 			},
 		});
-		// console.log('api', props.keywordLength);
 		setCurrentGifs(res.data.data);
 	} catch (error) {
 		if (error.response.status >= 500) {
