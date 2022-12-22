@@ -28,31 +28,33 @@ function App() {
 		}
 	}, [id]);
 
-	return (
-		<div className="App">
-			<Header />
-			<main>
-				{/* Route created to navigate back to home. This will be utilized for going between our routes or home & favorites  */}
-				<Routes>
-					<Route path="/" element={<Navigate to="/home" />} />
-					<Route
-						path="/home"
-						element={
-							// We add props to our Display gif components which we pass back to App.js
-							<DisplayGifs
-								keywords={keywords}
-								movieTitle={movieTitle}
-								setKeywords={setKeywords}
-								setId={setId}
-								apiKey={apiKey}
-								setMovieTitle={setMovieTitle}
-							/>
-						}
-					/>
-					{/* Secondary route located in our Display Saved components where users can visit their favorite gifs */}
-					<Route path="/Favourites" element={<DisplaySaved />} />
-				</Routes>
-			</main>
+// All of our JSX renders live here:
+return (
+	<div className="App">
+		<Header />
+		<main>
+			{/* Route created to navigate back to home. This will be utilized for going between our routes or home & favorites  */}
+			<Routes>
+				<Route path="/" element={<Navigate to="/home" />} />
+				<Route
+					path="/home"
+					element={
+						// We add props to our Display gif components which we pass back to App.js
+						<DisplayGifs
+							keywords={keywords}
+							movieTitle={movieTitle}
+							setKeywords={setKeywords}
+							setId={setId}
+							apiKey={apiKey}
+							setMovieTitle={setMovieTitle}
+						/>
+					}
+				/>
+				{/* Secondary route located in our Display Saved components where users can visit their favorite gifs */}
+				<Route path="/Favourites" element={<DisplaySaved />} />
+			</Routes>
+
+		</main>
 
 		<Footer />
 	</div>
