@@ -5,10 +5,9 @@ import Favourites from './NavBar.js';
 import SearchBar from './SearchBar';
 
 const DisplayGifs = (props) => {
-	
 	// We should our shuffle or keys we get back from the randomizer function in state.
+	// eslint-disable-next-line
 	const [shuffle, setShuffle] = useState([]);
-
 
 	// A function used to shuffle the through an array, passing in the paramaters or array and number. We use Math.random to select a random assortment from our array and the return our shuffled sliced from the beginning of the array to the end.
 	function getMultipleRandom(arr, num) {
@@ -81,15 +80,12 @@ const DisplayGifs = (props) => {
 						)}
 					</div>
 
-
 					<div className="randomAndSave">
-          
-{/* Ternary operator for displaying our favorite buttons only if a keyword has been given */}
+						{/* Ternary operator for displaying our favorite buttons only if a keyword has been given */}
 
 						<div className="favesButton">
 							{keywords.length === 0 ? null : <Favourites />}
 						</div>
-
 					</div>
 				</div>
 
@@ -121,7 +117,7 @@ const DisplayGifs = (props) => {
 
 export default DisplayGifs;
 
-{/* // Display gifs (MVP)
+// Display gifs (MVP)
 // a. Get the full array of keywords from the prop (app.js)
 // i. Use useEffect
 // 1. Inside the useEffect we want to do a for loop 3 times
@@ -129,4 +125,4 @@ export default DisplayGifs;
 // 1. Makes a call to the giphy API
 // 2. Return JSX with URL to display to the page
 // 2. (Put the return into an array  map through this array to display to the page Display
-// the move titles as well ) */}
+// the move titles as well ) */

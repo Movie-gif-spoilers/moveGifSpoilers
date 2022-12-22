@@ -14,7 +14,7 @@ export const getMovieId = async (props, savedInput) => {
 				language: 'en-US',
 			},
 		});
-		console.log('checking response', res);
+
 		if (res.data.results[0] === undefined) {
 			Swal.fire({
 				icon: 'error',

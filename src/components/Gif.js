@@ -20,6 +20,7 @@ function Gif(props) {
 	// This useeffect utilizes our API call getGif function and passes through our props and setCurrentGifs. This is then triggers a rerender based off of our keyword or if a user has clicked our image.
 	useEffect(() => {
 		getGif(props, setCurrentGifs);
+		// eslint-disable-next-line
 	}, [props.keyword, clicked]);
 
 	// A function holding a method used to direct users to Giphys database if they click on the giphy icon in our JSX
