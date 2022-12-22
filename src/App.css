@@ -446,6 +446,11 @@ footer p {
 }
 
 @media (max-width: 690px) {
+  .aboutAppButton {
+      width: 220px;
+      font-size: 1.25rem;
+  }
+  
   .randomAndSave {
     flex-direction: column;
     gap: 1.7rem;
@@ -456,6 +461,7 @@ footer p {
     background-position: -170px 100%;
     background-size: 130%;
   }
+
 }
 
 
@@ -524,7 +530,11 @@ footer p {
 }
 
 @media (max-width: 501px) {
-
+  .aboutAppButton {
+      width: 170px;
+      padding: 12px;
+      margin-top: 5rem;
+    }
   .savedGifPic {
     width: 80%;
   }
@@ -532,6 +542,12 @@ footer p {
 
 
 @media (max-width: 490px) {
+  .aboutAppButton {
+      width: 160px;
+      font-size: .95rem;
+      margin-top: 2rem;
+  }
+  
   footer p {
     font-size: 0.8rem;
   }
@@ -555,6 +571,12 @@ footer p {
   .header h1 {
     padding-top: 30vh;
   }
+
+  /* .aboutAppButton {
+    width: 220px;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  } */
 }
 
 @media (max-width: 390px) {
