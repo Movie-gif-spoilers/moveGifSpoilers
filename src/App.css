@@ -244,8 +244,8 @@ li {
 
 .deleteButton{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -15px;
+  right: -15px;
   width: 45px;
   height: 45px;
   padding: 10px;
