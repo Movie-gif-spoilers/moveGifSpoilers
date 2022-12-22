@@ -8,16 +8,19 @@ const SearchBar = (props) => {
 	const [savedInput, setSavedInput] = useState('');
 
 	useEffect(() => {
+		// We make first call to Movie API to get movie ID
 		if (props.id || savedInput) {
 			getMovieId(props, savedInput);
 		}
 		// eslint-disable-next-line
 	}, [savedInput]);
 
+	// Store the users input in state
 	const userChoice = (e) => {
 		setInput(e.target.value);
 	};
 
+	// Make second call to Movie API with the value currently saved in input
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setSavedInput(input);
