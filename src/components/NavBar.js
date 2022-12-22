@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
+// This function links to the DisplayGifs component
 export const HomeNavBar = () => {
 	return (
 		<Link to="/home">
@@ -14,9 +15,10 @@ export const HomeNavBar = () => {
 	);
 };
 
+// This function links to the DisplaySaved component
 const Favourites = () => {
 	return (
-		<Link to="/viewsavedgifs">
+		<Link to="/Favourites">
 			<nav className="navBar">
 				<FontAwesomeIcon icon="heart" className="heartIcon" />
 				<p className="favesP"> View Favs </p>

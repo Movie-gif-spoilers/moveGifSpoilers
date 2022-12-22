@@ -114,6 +114,22 @@ header {
   padding: 25vh 0 2rem;
 }
 
+.aboutAppButton {
+  background-color: #ddb3d6;
+  border: 1.5px solid black;
+  border-radius: 1rem;
+  width: 270px;
+  padding: 12px;
+  margin-top: 3rem;
+}
+
+.aboutAppButton:hover,
+.aboutAppButton:focus {
+  box-shadow: 0 0 5px 5px #f5c433;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 
 /* SEARCH BAR */
 .searchBar {
@@ -270,8 +286,8 @@ li {
 
 .deleteButton{
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -15px;
+  right: -15px;
   width: 45px;
   height: 45px;
   padding: 10px;
@@ -457,6 +473,11 @@ footer p {
 }
 
 @media (max-width: 690px) {
+  .aboutAppButton {
+      width: 220px;
+      font-size: 1.25rem;
+  }
+  
   .randomAndSave {
     flex-direction: column;
     gap: 1.7rem;
@@ -467,6 +488,7 @@ footer p {
     background-position: -170px 100%;
     background-size: 130%;
   }
+
 }
 
 
@@ -534,15 +556,27 @@ footer p {
 
 }
 
-/* @media (max-width: 501px) {
+
+@media (max-width: 501px) {
+  .aboutAppButton {
+      width: 170px;
+      padding: 12px;
+      margin-top: 5rem;
+    }
 
   .savedGifPic {
     width: 80%;
   }
-} */
+
 
 
 @media (max-width: 490px) {
+  .aboutAppButton {
+      width: 160px;
+      font-size: .95rem;
+      margin-top: 2rem;
+  }
+  
   footer p {
     font-size: 0.8rem;
   }
@@ -566,6 +600,12 @@ footer p {
   .header h1 {
     padding-top: 30vh;
   }
+
+  /* .aboutAppButton {
+    width: 220px;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  } */
 }
 
 @media (max-width: 390px) {
